@@ -42,7 +42,7 @@
     <img class="mb-4" src="{{url('assets/odon.png')}}" alt="" width="132" height="117">
     <h1 class="h3 mb-3 fw-normal">Login</h1>
 
-    <div class="form-floating">
+    <div class="form-floating mb-2">
       <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
       <label for="floatingInput">Email</label>
     </div>
@@ -56,8 +56,9 @@
         <input type="checkbox" value="remember-me"> Lembrar Senha
       </label>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+    <button class="w-100 btn btn-lg btn-primary mb-2" type="submit">Entrar</button>
+    <a href="{{route('cadastro')}}" class="w-100">Cadastrar</a>
+    <p class="mt-5 mb-3 text-muted">&copy; 2022 Odonto On</p>
   </form>
 </main>
 
