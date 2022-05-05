@@ -1,8 +1,5 @@
 <p align="center"><a href="https://github.com/Garchy/Site-InovaWeek" target="_blank"><img src="https://uvv.br/wp-content/themes/uvvBr/templates/assets//img/logouvv.svg" width="400"></a></p>
 
-<p align="center">
-## ODONTO ON
-</p>
 
 ## About Odonto On
 
@@ -11,5 +8,5 @@ A proposta inicial será que dentro desta plataforma o paciente ao se cadastrar,
 
 ## Developers Team
 
-[Gabryel Alcântara - Diretor do Projeto](https://github.com/Garchy).
-[Kevin Ponciano - Backend](https://github.com/Kevin-Ponciano).
+- **[Gabryel Alcântara - Diretor do Projeto](https://github.com/Garchy)**
+- **[Kevin Ponciano - Backend](https://github.com/Kevin-Ponciano)**
