@@ -1,4 +1,4 @@
-<p align="center"><a href="https://github.com/Garchy/Site-InovaWeek" target="_blank"><img src="https://uvv.br/wp-content/themes/uvvBr/templates/assets//img/logouvv.svg" width="400"></a></p>
+<p align="center"><a href="https://github.com/Garchy/Site-InovaWeek" target="_blank"><img src="https://raw.githubusercontent.com/Kevin-Ponciano/Site-InovaWeek/main/public/assets/odon.png" width="400"></a></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## About Odonto On
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
