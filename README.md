@@ -18,3 +18,10 @@ A proposta inicial será que dentro desta plataforma o paciente ao se cadastrar,
 - **[Lucca Quintas - Frontend]()**
 - **[Gabriel Gonçalves - IA]()**
 
+### 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [PHP](https://www.php.net)
+- [Composer](https://getcomposer.org)
+- [LARAVEL](https://laravel.com)
