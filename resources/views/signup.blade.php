@@ -52,7 +52,6 @@
                   <option value="">Selecione...</option>
                   <option>Masculino</option>
                   <option>Feminino</option>
-                  <option>Outro</option>
                   <option>Prefiro não informar</option>
                 </select>
                 <div class="invalid-feedback">
