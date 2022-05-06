@@ -10,3 +10,6 @@ A proposta inicial será que dentro desta plataforma o paciente ao se cadastrar,
 
 - **[Gabryel Alcântara - Diretor do Projeto](https://github.com/Garchy)**
 - **[Kevin Ponciano - Backend](https://github.com/Kevin-Ponciano)**
+- **[Lucca Quintas - Frontend]
+- **[Gabriel Gonçalves - IA]
+
