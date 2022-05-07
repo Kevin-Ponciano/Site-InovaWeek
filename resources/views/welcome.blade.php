@@ -1,6 +1,6 @@
 <!-- Utilizando o scopo HTML do /templates/template.blade.php -->
 @extends('templates.template')
-
+<link href="{{URL::asset('css/login.css')}}" rel="stylesheet">
 @section('content')
   <body class="text-center">
     
