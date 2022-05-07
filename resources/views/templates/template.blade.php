@@ -33,7 +33,7 @@
 
   <!-- Custom styles for this template -->
   <link href="form-validation.css" rel="stylesheet">
-    <link href="{{URL::asset('css/login.css')}}" rel="stylesheet">
+  <link href="{{URL::asset('css/login.css')}}" rel="stylesheet">
 
 </head>
     <!-- O arquivo que utilizara este template precisa usar o nome content em sua section-->
