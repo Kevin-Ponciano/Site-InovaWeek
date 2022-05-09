@@ -1,0 +1,2 @@
+Para instalar debug no site.
+$ composer require barryvdh/laravel-debugbar --dev
