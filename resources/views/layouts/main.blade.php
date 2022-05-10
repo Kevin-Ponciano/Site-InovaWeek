@@ -33,7 +33,7 @@
 
 
 </head>
-    <body class="text-center">
+    <body>
         <!-- O arquivo que utilizara este template precisa usar o nome content em sua section-->
         @yield('content')
         <footer>

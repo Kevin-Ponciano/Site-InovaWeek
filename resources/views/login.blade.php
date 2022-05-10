@@ -5,7 +5,7 @@
 
 <link href="{{URL::asset('css/login.css')}}" rel="stylesheet">
 @section('content')
-    <main class="form-signin">
+    <main class="form-signin text-center">
         <form>
             <img class="mb-4" src="{{url('assets/odon.png')}}" alt="" width="132" height="117">
             <h1 class="h3 mb-3 fw-normal">Login</h1>
@@ -25,7 +25,7 @@
                 </label>
             </div>
             <button class="w-100 btn btn-lg btn-primary mb-2" type="submit">Entrar</button>
-            <a href="{{route('cadastro')}}" class="w-50">Cadastrar</a>
+            <a href='/cadastro' class="w-50">Cadastrar</a>
         </form>
 @endsection
 
