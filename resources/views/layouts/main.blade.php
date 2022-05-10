@@ -36,7 +36,7 @@
     <body>
         <!-- O arquivo que utilizara este template precisa usar o nome content em sua section-->
         @yield('content')
-        <footer>
+        <footer class="text-center">
             <p class="mt-5 mb-3 text-muted"><br/>&copy; 2022 Odonto On</p>
         </footer>
     </body>

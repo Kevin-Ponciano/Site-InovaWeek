@@ -14,11 +14,12 @@
         <div class="row g-5">
             <div class="col-md-7 col-lg-8">
                 <h4 class="mb-3">Dados Pessoais</h4>
-                <form class="needs-validation" novalidate>
+                <form action="/views" method="post" class="needs-validation" novalidate>
+                    @csrf
                     <div class="row g-3">
                         <div class="col-sm-6">
                             <label for="firstName" class="form-label">Nome</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                            <input type="text" class="form-control" id="nome" name="nome" placeholder="" value="" required>
                             <div class="invalid-feedback">
                                 Por favor, informe um nome válido.
                             </div>
@@ -26,7 +27,7 @@
 
                         <div class="col-sm-6">
                             <label for="lastName" class="form-label">Sobrenome</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                            <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="" value="" required>
                             <div class="invalid-feedback">
                                 Por favor, informe um sobrenome válido.
                             </div>
@@ -34,7 +35,7 @@
 
                         <div class="col-12">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
                             <div class="invalid-feedback">
                                 Por favor, insira um email válido.
                             </div>
@@ -42,7 +43,7 @@
 
                         <div class="col-6">
                             <label for="birthdate" class="form-label">Data de Nascimento</label>
-                            <input type="date" class="form-control" id="birthdate">
+                            <input type="date" class="form-control" id="data_nascimento" name="data_nascimento">
                             <div class="invalid-feedback">
                                 Por favor, insira uma data de nascimento válida.
                             </div>
@@ -50,11 +51,11 @@
 
                         <div class="col-md-6">
                             <label for="gender" class="form-label">Gênero</label>
-                            <select class="form-select" id="country" required>
-                                <option value="">Selecione...</option>
-                                <option>Masculino</option>
-                                <option>Feminino</option>
-                                <option>Prefiro não informar</option>
+                            <select class="form-select" id="genero" name="genero" required>
+                                <option value=" ">Selecione...</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Feminino">Feminino</option>
+                                <option value="Prefiro não informar">Prefiro não informar</option>
                             </select>
                             <div class="invalid-feedback">
                                 Por favor, insira um gênero válido.
@@ -64,7 +65,7 @@
                         <div
                             class="col-6"> {{-- PRECISA COLOCAR A MASCARA PARA SO ACEITAR ENTRADA FORMATADA 127.456.789-10 --}}
                             <label for="cpf" class="form-label">CPF</label>
-                            <input type="text" class="form-control cpf-mask" placeholder="Ex.: 000.000.000-00">
+                            <input type="text" class="form-control cpf-mask" id="CPF" name="CPF" placeholder="Ex.: 000.000.000-00">
                             <div class="invalid-feedback">
                                 Por favor, insira uma data de nascimento válida.
                             </div>
@@ -77,7 +78,7 @@
                         <h4>Definir Senha</h4>
                         <div class="col-6 ">
                             <label for="senha" class="form-label">Senha</label>
-                            <input type="password" class="form-control cpf-mask">
+                            <input type="password" class="form-control" id="senha" name="senha">
                             <div class="invalid-feedback">
                                 Por favor, insira uma senha válida.
                             </div>
@@ -85,7 +86,7 @@
 
                         <div class="col-6">
                             <label for="ConfSenha" class="form-label">Confirmar Senha</label>
-                            <input type="password" class="form-control cpf-mask">
+                            <input type="password" class="form-control" id="senha" name="senha">
                             <div class="invalid-feedback">
                                 As senhas não coincidem.
                             </div>
@@ -96,7 +97,7 @@
                     <hr class="my-4">
 
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="terms">
+                        <input type="checkbox" class="form-check-input" id="termos" name="termos" value="1" onclick="func();">
                         <label class="form-check-label" for="same-address">
                             Eu concordo com os <a href="">Termos de Uso e Política de Privacidade</a>
                         </label>
@@ -109,9 +110,16 @@
             </div>
         </div>
     </main>
-
 </div>
+{{--Imprimindo Dados do CadastroController--}}
+{{--@foreach($usuarios as $usuario)--}}
+{{--    <p>--}}
+{{--        Nome: {{$usuario->nome}} {{$usuario->sobrenome}}<br>--}}
+{{--        Email: {{$usuario->email}}<br>--}}
+{{--    </p>--}}
+{{--@endforeach--}}
 
+<script>func=()=>{let dado;dado=document.getElementsByName('termos')[0].checked;console.log(dado)}</script>
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="form-validation.js"></script>
