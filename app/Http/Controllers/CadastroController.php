@@ -25,6 +25,7 @@ class CadastroController extends Controller
         $usuario->data_nascimento = $request->data_nascimento;
         $usuario->genero = $request->genero;
         $usuario->CPF = $request->CPF;
+        $usuario->termo = $request->termo;
 
 
         $usuario->save();

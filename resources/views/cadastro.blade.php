@@ -14,7 +14,7 @@
         <div class="row g-5">
             <div class="col-md-7 col-lg-8">
                 <h4 class="mb-3">Dados Pessoais</h4>
-                <form action="/views" method="post" class="needs-validation" novalidate>
+                <form action="/views" method="post" class="needs-validation">
                     @csrf
                     <div class="row g-3">
                         <div class="col-sm-6">
@@ -35,7 +35,7 @@
 
                         <div class="col-12">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
                             <div class="invalid-feedback">
                                 Por favor, insira um email válido.
                             </div>
@@ -43,7 +43,7 @@
 
                         <div class="col-6">
                             <label for="birthdate" class="form-label">Data de Nascimento</label>
-                            <input type="date" class="form-control" id="data_nascimento" name="data_nascimento">
+                            <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required>
                             <div class="invalid-feedback">
                                 Por favor, insira uma data de nascimento válida.
                             </div>
@@ -52,7 +52,7 @@
                         <div class="col-md-6">
                             <label for="gender" class="form-label">Gênero</label>
                             <select class="form-select" id="genero" name="genero" required>
-                                <option value=" ">Selecione...</option>
+                                <option value="">Selecione...</option>
                                 <option value="Masculino">Masculino</option>
                                 <option value="Feminino">Feminino</option>
                                 <option value="Prefiro não informar">Prefiro não informar</option>
@@ -65,7 +65,7 @@
                         <div
                             class="col-6"> {{-- PRECISA COLOCAR A MASCARA PARA SO ACEITAR ENTRADA FORMATADA 127.456.789-10 --}}
                             <label for="cpf" class="form-label">CPF</label>
-                            <input type="text" class="form-control cpf-mask" id="CPF" name="CPF" placeholder="Ex.: 000.000.000-00">
+                            <input type="text" class="form-control cpf-mask" id="CPF" name="CPF" placeholder="Ex.: 000.000.000-00" required>
                             <div class="invalid-feedback">
                                 Por favor, insira uma data de nascimento válida.
                             </div>
@@ -78,7 +78,7 @@
                         <h4>Definir Senha</h4>
                         <div class="col-6 ">
                             <label for="senha" class="form-label">Senha</label>
-                            <input type="password" class="form-control" id="senha" name="senha">
+                            <input type="password" class="form-control" id="senha" name="senha" required>
                             <div class="invalid-feedback">
                                 Por favor, insira uma senha válida.
                             </div>
@@ -86,7 +86,7 @@
 
                         <div class="col-6">
                             <label for="ConfSenha" class="form-label">Confirmar Senha</label>
-                            <input type="password" class="form-control" id="senha" name="senha">
+                            <input type="password" class="form-control" id="confirm_senha" name="confirm_senha" required>
                             <div class="invalid-feedback">
                                 As senhas não coincidem.
                             </div>
@@ -97,7 +97,7 @@
                     <hr class="my-4">
 
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="termos" name="termos" value="1" onclick="func();">
+                        <input type="checkbox" class="form-check-input" id="termo" name="termo" value="1" onclick="func();" required>
                         <label class="form-check-label" for="same-address">
                             Eu concordo com os <a href="">Termos de Uso e Política de Privacidade</a>
                         </label>
