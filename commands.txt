@@ -1,2 +1,8 @@
 Para instalar debug no site.
 $ composer require barryvdh/laravel-debugbar --dev
+
+Para instalar o Jetstream
+$ composer require laravel/jetstream
+$ php artisan jetstream:install livewire
+$ npm install
+$ npm run dev

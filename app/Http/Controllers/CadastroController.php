@@ -30,6 +30,6 @@ class CadastroController extends Controller
 
         $usuario->save();
 
-        return redirect('/cadastro');
+        return redirect('/')->with('cadastro_msg','Cadastro realizado com sucesso');
     }
 }

@@ -4,7 +4,7 @@
 
 @section('content')
 
-
+    <link href="{{URL::asset('css/signup.css')}}" rel="stylesheet">
 <div class="container">
     <main>
         <div class="py-5 text-start">
@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="col-6">
-                            <label for="birthdate" class="form-label">Data de Nascimento</label>
+                            <label for="data_nascimento" class="form-label">Data de Nascimento</label>
                             <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required>
                             <div class="invalid-feedback">
                                 Por favor, insira uma data de nascimento válida.
