@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/png" sizes="32x32" rel="icon" src="{{url('assets/icons8-coroa-dentária-32.png')}}}">
     <title>@yield('title')</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/checkout/">
 

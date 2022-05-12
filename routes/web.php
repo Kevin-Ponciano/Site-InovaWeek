@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/cadastro', [CadastroController::class, 'index']);
 
-Route::post('/views',[CadastroController::class, 'store']);
+//Route::post('/views',[CadastroController::class, 'store']);
 
 //Verifica se o usuario esta logado
 Route::middleware([
