@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 //Route::get('/login', [LoginController::class, 'index']);
 
-//Route::get('/cadastro', [CadastroController::class, 'index']);
+Route::get('/cadastro', [CadastroController::class, 'index']);
 
 Route::post('/views',[CadastroController::class, 'store']);
 
