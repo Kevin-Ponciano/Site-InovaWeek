@@ -8,9 +8,8 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
+        <!-- Icon -->
         <link type="image/png" sizes="32x32" rel="icon" href='{{url('assets/favicon.png')}}'>
-
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 

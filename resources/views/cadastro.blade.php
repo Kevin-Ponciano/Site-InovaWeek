@@ -112,12 +112,12 @@
     </main>
 </div>
 {{--Imprimindo Dados do CadastroController--}}
-{{--@foreach($usuarios as $usuario)--}}
-{{--    <p>--}}
-{{--        Nome: {{$usuario->nome}} {{$usuario->sobrenome}}<br>--}}
-{{--        Email: {{$usuario->email}}<br>--}}
-{{--    </p>--}}
-{{--@endforeach--}}
+@foreach($usuarios as $usuario)
+    <p>
+        Nome: {{$usuario->nome}} {{$usuario->sobrenome}}<br>
+        Email: {{$usuario->email}}<br>
+    </p>
+@endforeach
 
 <script>func=()=>{let dado;dado=document.getElementsByName('termos')[0].checked;console.log(dado)}</script>
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
