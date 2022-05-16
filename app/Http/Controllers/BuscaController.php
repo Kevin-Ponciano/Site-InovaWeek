@@ -21,4 +21,17 @@ class BuscaController extends Controller
         }
         return view('search',['users'=> $users,'search'=> $search]);
     }
+
+    public function dataAjax(Request $request)
+    {
+        $data = [];
+
+        if($request->has('q')){
+            $search = $request->q;
+            $data =User::select("id","name")
+                ->where('name','LIKE','%'.$search.'%')
+                ->get();
+        }
+        return response()->json($data);
+    }
 }

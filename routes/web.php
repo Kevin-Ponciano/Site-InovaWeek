@@ -9,6 +9,8 @@ Route::get('/cadastro', [CadastroController::class, 'index']);
 
 Route::get('/buscar', [BuscaController::class, 'index'])->name('buscar');
 
+Route::get('/select2', [BuscaController::class, 'dataAjax']);
+
 //Route::post('/views',[CadastroController::class, 'store']);
 
 //Verifica se o usuario esta logado
