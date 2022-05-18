@@ -7,3 +7,7 @@ php artisan jetstream:install livewire
 npm install
 npm run dev
 php artisan vendor:publish --tag=jetstream-views
+
+Links:
+select2
+https://jsfiddle.net/wp8x4qg6/1/
