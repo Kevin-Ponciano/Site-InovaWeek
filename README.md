@@ -1,64 +1,32 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h4 align="center">
+ 🚧  Projeto 🚀 Em construção...  🚧
+</h4>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<p align="center"><a href="https://github.com/Garchy/Site-InovaWeek" target="_blank"><img src="https://uvv.br/wp-content/themes/uvvBr/templates/assets//img/logouvv.svg" width="400"></a></p>
 
-## About Laravel
+<h1 align="center">ODONTO ON</h1>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## About Odonto On
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+A proposta inicial será que dentro desta plataforma o paciente ao se cadastrar, aceite responder algumas perguntas sobre a sua saúde e dados pessoais. O dentista por sua vez, e apenas ele, poderá visualizar algumas dessas informações, a fim de conhecer certos sintomas e características do paciente, e com isso, organizar e se preparar melhor para a sua consulta.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Developers Team
 
-## Learning Laravel
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/Garchy"><img style="border-radius:50%;" src="https://pps.whatsapp.net/v/t61.24694-24/215944670_125111486562234_8374280455993374716_n.jpg?ccb=11-4&oh=1f0451780e43815cf40e8ee2ec922fb0&oe=62859900" width="100px;" alt=""/><br /><sub><b>Gabryel Alcântara<br/>Diretor do Projeto</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/Kevin-Ponciano"><img style="border-radius: 50%;" src="https://scontent.fvix7-1.fna.fbcdn.net/v/t39.30808-6/278029718_5023943751016169_9198807347272154776_n.jpg?_nc_cat=102&ccb=1-6&_nc_sid=09cbfe&_nc_eui2=AeHbcX7rRzaAocC_arxbrkIhpAInZDahCUmkAidkNqEJSW_Bgv6eF9IkmDkRi9moqPORzvAsM--1f9EchLQjKYCh&_nc_ohc=SSpo1qMCYaAAX9UrMr1&_nc_ht=scontent.fvix7-1.fna&oh=00_AT-MfZJBQZq6tr1tN8B56rG5oRjDPCUZYGYxMgNy6oo7_A&oe=62820EC3" width="100px;" alt=""/><br /><sub><b>Kevin Ponciano<br/>Backend</b></sub></a><br/></td>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+  </tr>
+</table>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **[Lucca Quintas - Frontend]()**
+- **[Gabriel Gonçalves - IA]()**
 
-## Laravel Sponsors
+## 🛠 Tecnologias
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+As seguintes ferramentas foram usadas na construção do projeto:
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- [PHP](https://www.php.net)
+- [Composer](https://getcomposer.org)
+- [LARAVEL](https://laravel.com)

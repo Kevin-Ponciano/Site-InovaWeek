@@ -1,0 +1,9 @@
+.cadastro_msg{
+    background-color: lightskyblue;
+    color: #155724;
+    border: 1px solid #C3E6CB;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+}
