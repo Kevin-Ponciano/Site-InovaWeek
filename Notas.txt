@@ -6,8 +6,11 @@ composer require laravel/jetstream
 php artisan jetstream:install livewire
 npm install
 npm run dev
-php artisan vendor:publish --tag=jetstream-views
+php artisan migrate
 
 Links:
-select2
+-> select2
 https://jsfiddle.net/wp8x4qg6/1/
+
+-> Laravel-tutorial
+https://www.itsolutionstuff.com/laravel-tutorial
