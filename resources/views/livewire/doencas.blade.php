@@ -17,7 +17,7 @@
                 </div>
             @endif
             <button wire:click="create()"
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">Create New Post
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">Adicionar nova Doença
             </button>
             @if($isOpen)
                 @include('livewire.create')
@@ -41,12 +41,12 @@
                         <td class="border px-4 py-2">{{ $doenca->diagnostico }}</td>
                         <td class="border px-4 py-2">{{ $doenca->sintomas }}</td>
                         <td class="border px-4 py-2">{{ $doenca->tratamento }}</td>
-                        <td class="border px-4 py-2">
+                        <td class="border px-2 py-2">
                             <button wire:click="edit({{ $doenca->id }})"
-                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Editar
+                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded">Editar
                             </button>
                             <button wire:click="delete({{ $doenca->id }})"
-                                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Deletar
+                                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-1 rounded">Deletar
                             </button>
                         </td>
                     </tr>
