@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BuscaController;
 use App\Http\Controllers\CadastroController;
+use App\Http\Livewire\Doencas;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware([// Verifica se o usuario esta logado
@@ -26,6 +27,9 @@ Route::middleware([
 Route::get('/buscar', [BuscaController::class, 'index'])->name('buscar');
 
 Route::get('/select2', [BuscaController::class, 'dataAjax']);
+
+Route::get('doencas', Doencas::class)->middleware('auth');
+Route::post('doencas', Doencas::class)->middleware('auth');
 
 //Route::post('/views',[CadastroController::class, 'store']);
 

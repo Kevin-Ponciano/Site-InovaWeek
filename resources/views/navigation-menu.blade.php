@@ -26,6 +26,11 @@
                         {{ __('Perfil') }}
                     </x-jet-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{'/doencas'}}" :active="request()->routeIs('doencas')">
+                        {{ __('Registro de Doenças') }}
+                    </x-jet-nav-link>
+                </div>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
