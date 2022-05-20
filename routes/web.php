@@ -10,26 +10,17 @@ Route::middleware([// Verifica se o usuario esta logado
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/', fn() => view('dashboard'))->name('dashboard');
+    Route::get('/dashboard', fn() => view('dashboard'))->name('dashboard');
+
+
+    Route::get('/buscar', [BuscaController::class, 'index'])->name('buscar');
+
+    Route::get('/select2', [BuscaController::class, 'dataAjax']);
+
+    Route::get('doencas', Doencas::class)->name('doencas');
+    Route::post('doencas', Doencas::class)->name('doencas');
 });
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
-
-Route::get('/buscar', [BuscaController::class, 'index'])->name('buscar');
-
-Route::get('/select2', [BuscaController::class, 'dataAjax']);
-
-Route::get('doencas', Doencas::class)->middleware('auth');
-Route::post('doencas', Doencas::class)->middleware('auth');
 
 //Route::post('/views',[CadastroController::class, 'store']);
 
