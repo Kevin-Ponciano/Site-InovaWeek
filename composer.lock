@@ -995,6 +995,19 @@
             "time": "2022-03-20T21:55:58+00:00"
         },
         {
+<<<<<<< HEAD
+            "name": "laravel/framework",
+            "version": "v9.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "598a8c84d452a66b90a3213b1d67189cc726c728"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/598a8c84d452a66b90a3213b1d67189cc726c728",
+                "reference": "598a8c84d452a66b90a3213b1d67189cc726c728",
+=======
             "name": "jaybizzle/crawler-detect",
             "version": "v1.2.111",
             "source": {
@@ -1204,6 +1217,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/b5b5c635f1a93f277b5248725a1f7ffc97e20810",
                 "reference": "b5b5c635f1a93f277b5248725a1f7ffc97e20810",
+>>>>>>> 054b194de9d6b20bbe8f88e26e91f581ef2e0868
                 "shasum": ""
             },
             "require": {
@@ -1369,6 +1383,9 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
+<<<<<<< HEAD
+            "time": "2022-05-03T14:47:20+00:00"
+=======
             "time": "2022-05-11T13:38:26+00:00"
         },
         {
@@ -1436,6 +1453,7 @@
                 "source": "https://github.com/laravel/jetstream"
             },
             "time": "2022-05-10T14:20:57+00:00"
+>>>>>>> 054b194de9d6b20bbe8f88e26e91f581ef2e0868
         },
         {
             "name": "laravel/sanctum",
@@ -6098,6 +6116,18 @@
         },
         {
             "name": "laravel/sail",
+<<<<<<< HEAD
+            "version": "v1.14.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/sail.git",
+                "reference": "9a7348dedfccc894718a21f71c09d669747e3f33"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/9a7348dedfccc894718a21f71c09d669747e3f33",
+                "reference": "9a7348dedfccc894718a21f71c09d669747e3f33",
+=======
             "version": "v1.14.4",
             "source": {
                 "type": "git",
@@ -6108,6 +6138,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/sail/zipball/0e0e51f19c758c79acbda11e3870641fbad5b7d9",
                 "reference": "0e0e51f19c758c79acbda11e3870641fbad5b7d9",
+>>>>>>> 054b194de9d6b20bbe8f88e26e91f581ef2e0868
                 "shasum": ""
             },
             "require": {
@@ -6154,6 +6185,9 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
+<<<<<<< HEAD
+            "time": "2022-05-02T13:58:40+00:00"
+=======
             "time": "2022-05-12T12:53:10+00:00"
         },
         {
@@ -6265,6 +6299,7 @@
                 "source": "https://github.com/maximebf/php-debugbar/tree/v1.18.0"
             },
             "time": "2021-12-27T18:49:48+00:00"
+>>>>>>> 054b194de9d6b20bbe8f88e26e91f581ef2e0868
         },
         {
             "name": "mockery/mockery",
