@@ -10,7 +10,7 @@ class CadastroController extends Controller
     public function index(){
 
         // Recuperando Dados do Banco
-        $usuarios = Usuario::all();
+        $usuarios = Usuario::all()->get();
 
         return view('cadastro',['usuarios' => $usuarios]);
     }
