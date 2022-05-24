@@ -2,10 +2,11 @@
 
 use App\Http\Controllers\BuscaController;
 use App\Http\Controllers\CadastroController;
+use App\Http\Controllers\EventoController;
 use App\Http\Livewire\Doencas;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware([// Verifica se o usuario esta logado
+Route::middleware([// O Middleware verifica se o usuario esta logado
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
@@ -20,6 +21,8 @@ Route::middleware([// Verifica se o usuario esta logado
 
     Route::get('doencas', Doencas::class)->name('doencas');
     Route::post('doencas', Doencas::class)->name('doencas');
+
+    Route::get('/calendario',[EventoController::class, 'index'])->name('evento');
 });
 
 //Route::post('/views',[CadastroController::class, 'store']);
