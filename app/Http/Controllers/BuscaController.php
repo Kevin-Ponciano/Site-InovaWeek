@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Suspeita;
 use Illuminate\Http\Request;
-use App\Models\User;
 
 class BuscaController extends Controller
 {
@@ -11,15 +11,15 @@ class BuscaController extends Controller
         $search = request('search');
 
         if($search) {
-            $users = User::where([
-                ['name',
+            $sintomas = Suspeita::where([
+                ['name_suspect',
                 'like',
                 '%'.$search.'%']
             ])->get();
         }else{
-            $users = User::all();
+            $sintomas = Suspeita::all();
         }
-        return view('search',['users'=> $users,'search'=> $search]);
+        return view('search',['sintomas'=> $sintomas,'search'=> $search]);
     }
 
     public function dataAjax(Request $request)
@@ -28,8 +28,8 @@ class BuscaController extends Controller
 
         if($request->has('q')){
             $search = $request->q;
-            $data =User::select("id","name")
-                ->where('name','LIKE','%'.$search.'%')
+            $data =Suspeita::select("id","name_suspect")
+                ->where('name_suspect','LIKE','%'.$search.'%')
                 ->get();
         }
         return response()->json($data);

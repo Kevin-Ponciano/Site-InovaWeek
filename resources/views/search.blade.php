@@ -11,9 +11,7 @@
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
                         <div class="card">
-                            <div class="card-header">
-                                <h4>Laravel - Dynamic autocomplete search using select2 JS Ajax</h4>
-                            </div>
+
                             <div class="card-body">
                                 <div class="row">
                                     <form action="/buscar" method="get" id="search-form">
@@ -29,34 +27,33 @@
                     </div>
                 </div>
             </div>
-{{--            <form action="/buscar" method="get">--}}
-{{--                <input--}}
-{{--                    name="search"--}}
-{{--                    id="search"--}}
-{{--                    placeholder="Search"--}}
-{{--                    type="search"--}}
-{{--                    class="--}}
-{{--                        form-control--}}
-{{--                        block--}}
-{{--                        w-full--}}
-{{--                        px-3--}}
-{{--                        py-1.5--}}
-{{--                        text-base--}}
-{{--                        font-normal--}}
-{{--                        text-gray-700--}}
-{{--                        bg-white bg-clip-padding--}}
-{{--                        border border-solid border-gray-300--}}
-{{--                        rounded--}}
-{{--                        transition--}}
-{{--                        ease-in-out--}}
-{{--                        m-0--}}
-{{--                        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none--}}
-{{--                      "/>--}}
-{{--            </form>--}}
-            @foreach($users as $user)
+            @foreach($sintomas as $sintoma)
                 <p>
-                    </br>Nome: {{$user->name}} {{$user->sobrenome}}<br>
-                    Email: {{$user->email}}<br>
+                    <br><b>Nome da Doença:</b> {{$sintoma->name_suspect}}
+                    <br><b>Sintomas:</b>
+                    @foreach($sintoma->symptoms as $symptoms)
+                        {{$symptoms}},
+                    @endforeach
+                    <br><b>Tratamento:</b>
+                    @foreach($sintoma->treatment as $treatment)
+                        {{$treatment}},
+                    @endforeach
+                    <br><b>Diagnóstico Diferencial:</b>
+                    @foreach($sintoma->differential_diagnosis as $differential_diagnosis)
+                        {{$differential_diagnosis}},
+                    @endforeach
+                    <br><b>Exames:</b>
+                    @foreach($sintoma->exams as $exams)
+                        {{$exams}},
+                    @endforeach
+                    <br><b>Provocações:</b>
+                    @foreach($sintoma->provoked as $provoked)
+                        {{$provoked}},
+                    @endforeach
+                    <br><b>Sinais:</b>
+                    @foreach($sintoma->signals as $signals)
+                        {{$signals}},
+                    @endforeach
                 </p>
             @endforeach
             <script type="text/javascript">
@@ -68,19 +65,18 @@
                         delay: 1,
                         processResults: data => ({
                             results: $.map(data, item => ({
-                                text: item.name,
-                                id: item.name
+                                text: item.name_suspect,
+                                id: item.name_suspect
                             }))
                         }),
                         cache: true
                     }
                 });
 
-                $('#itemName').change(function(){
+                $('#itemName').change(function () {
                     $('#search-form').submit();
                 });
             </script>
         </div>
     </div>
 </x-app-layout>
-
