@@ -13,16 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('doencas', function (Blueprint $table) {
             $table->id();
-            $table->string('nome','80');
-            $table->string('sobrenome','80');
-            $table->string('email','80')->unique();
-            $table->string('senha','80');
-            $table->date('data_nascimento');
-            $table->string('genero','25');
-            $table->string('CPF','16');
-            $table->boolean('termo');
+            $table->string('nome_doenca');
+            $table->text('diagnostico');
+            $table->text('sintomas');
+            $table->text('tratamento');
             $table->timestamps();
         });
     }
@@ -34,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('doencas');
     }
 };
