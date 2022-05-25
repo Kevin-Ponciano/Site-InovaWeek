@@ -1,64 +1,139 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <!-- <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Buscar
-        </h2>
-
-    </x-slot>
-    <div class="flex justify-center">
-        <div class="mb-3 xl:w-96">
-            <div class="container mt-4">
-                <div class="row">
-                    <div class="col-md-8 offset-md-2">
-                        <div class="card">
-
-                            <div class="card-body">
-                                <div class="row">
-                                    <form action="/buscar" method="get" id="search-form">
-                                        <div class="col-md-12">
-                                            <select class="itemName form-control" id="itemName" name="search">
-                                            </select>
-                                        </div>
-                                    </form>
-
-                                </div>
-                            </div>
-                        </div>
+        </h2> -->
+        <div class="flex flex-col">
+            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                    <div class="overflow-hidden">
+                        <table class="min-w-full">
+                            <tr>
+                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-1 text-center">
+                                    <div class="row">
+                                        <form action="/buscar" method="get" id="search-form">
+                                            <div class="col-md-12">
+                                                <select class="js-example-responsive" style="width: 50%" id="itemName" name="search">
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </th>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
+        </div>
+    </x-slot>
+
+    <div class="flex justify-center">
+        <div class="mb-3 xl:w-9/12">
             @foreach($sintomas as $sintoma)
-                <p>
-                    <br><b>Nome da Doença:</b> {{$sintoma->name_suspect}}
-                    <br><b>Sintomas:</b>
-                    @foreach($sintoma->symptoms as $symptoms)
-                        {{$symptoms}},
-                    @endforeach
-                    <br><b>Tratamento:</b>
-                    @foreach($sintoma->treatment as $treatment)
-                        {{$treatment}},
-                    @endforeach
-                    <br><b>Diagnóstico Diferencial:</b>
-                    @foreach($sintoma->differential_diagnosis as $differential_diagnosis)
-                        {{$differential_diagnosis}},
-                    @endforeach
-                    <br><b>Exames:</b>
-                    @foreach($sintoma->exams as $exams)
-                        {{$exams}},
-                    @endforeach
-                    <br><b>Provocações:</b>
-                    @foreach($sintoma->provoked as $provoked)
-                        {{$provoked}},
-                    @endforeach
-                    <br><b>Sinais:</b>
-                    @foreach($sintoma->signals as $signals)
-                        {{$signals}},
-                    @endforeach
-                </p>
+            <h2 class="font-semibold text-2xl flex justify-center my-8">{{$sintoma->name_suspect}}</h2>
+            <div class="grid grid-cols-3 gap-8">
+
+                <div class="flex justify-center">
+                    <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
+                        <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Diagnóstico Diferencial</h5>
+                        <p class="text-gray-700 text-base mb-4 font-medium">
+                            @foreach($sintoma->differential_diagnosis as $differential_diagnosis)
+                            <br>- {{$differential_diagnosis}}
+                            @endforeach
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex justify-center">
+                    <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
+                        <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Sintomas</h5>
+                        <p class="text-gray-700 text-base mb-4 font-medium">
+                            @foreach($sintoma->symptoms as $symptoms)
+                            <br>- {{$symptoms}}
+                            @endforeach
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex justify-center">
+                    <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
+                        <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Tratamento</h5>
+                        <p class="text-gray-700 text-base mb-4 font-medium">
+                            @foreach($sintoma->treatment as $treatment)
+                            <br>- {{$treatment}}
+                            @endforeach
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex justify-center">
+                    <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
+                        <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Exames</h5>
+                        <p class="text-gray-700 text-base mb-4 font-medium">
+                            @foreach($sintoma->exams as $exams)
+                            <br>- {{$exams}}
+                            @endforeach
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex justify-center">
+                    <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
+                        <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Causas</h5>
+                        <p class="text-gray-700 text-base mb-4 font-medium">
+                            @foreach($sintoma->provoked as $provoked)
+                            <br>- {{$provoked}}
+                            @endforeach
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex justify-center">
+                    <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
+                        <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Sinais</h5>
+                        <p class="text-gray-700 text-base mb-4 font-medium">
+                            @foreach($sintoma->signals as $signals)
+                            <br>- {{$signals}}
+                            @endforeach
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- <br><b>Sintomas:</b>
+                @foreach($sintoma->symptoms as $symptoms)
+                {{$symptoms}}
+                @endforeach
+                <br><b>Tratamento:</b>
+                @foreach($sintoma->treatment as $treatment)
+                {{$treatment}}
+                @endforeach
+                <br><b>Diagnóstico Diferencial:</b>
+                @foreach($sintoma->differential_diagnosis as $differential_diagnosis)
+                {{$differential_diagnosis}}
+                @endforeach
+                <br><b>Exames:</b>
+                @foreach($sintoma->exams as $exams)
+                {{$exams}}
+                @endforeach
+                <br><b>Provocações:</b>
+                @foreach($sintoma->provoked as $provoked)
+                {{$provoked}}
+                @endforeach
+                <br><b>Sinais:</b>
+                @foreach($sintoma->signals as $signals)
+                {{$signals}}
+                @endforeach -->
+            </p>
+
+
             @endforeach
             <script type="text/javascript">
                 $('#itemName').select2({
-                    placeholder: 'Digite o nome do Perfil',
+                    placeholder: 'Buscar',
+                    multiple: true,
+                    maximumSelectionSize: 1,
                     ajax: {
                         url: '/select2',
                         dataType: 'json',
@@ -73,7 +148,7 @@
                     }
                 });
 
-                $('#itemName').change(function () {
+                $('#itemName').change(function() {
                     $('#search-form').submit();
                 });
             </script>
