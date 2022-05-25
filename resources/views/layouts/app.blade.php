@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         <title>{{ config('app.name', 'Odonto On') }}</title>
 
@@ -13,6 +14,8 @@
         <!-- Icon -->
         <link type="image/png" sizes="32x32" rel="icon" href='{{url('assets/favicon.png')}}'>
 =======
+=======
+>>>>>>> parent of dc5723c (my update)
         <title>Odonto On{{-- config('app.name', 'Odonto On') --}}</title>
 
         <!-- Fonts -->
@@ -20,6 +23,9 @@
 
         <link type="image/png" sizes="32x32" rel="icon" href='{{url('assets/favicon.png')}}'>
 
+<<<<<<< HEAD
+>>>>>>> parent of dc5723c (my update)
+=======
 >>>>>>> parent of dc5723c (my update)
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
