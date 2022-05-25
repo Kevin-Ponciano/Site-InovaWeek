@@ -17,15 +17,19 @@
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+<<<<<<< HEAD
                     <x-jet-nav-link href="{{ route('buscar') }}" :active="request()->routeIs('buscar')">
                         {{ __('Buscar') }}
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+=======
+>>>>>>> parent of dc5723c (my update)
                     <x-jet-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                         {{ __('Perfil') }}
                     </x-jet-nav-link>
                 </div>
+<<<<<<< HEAD
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{route('evento')}}" :active="request()->routeIs('evento')">
@@ -33,6 +37,8 @@
                     </x-jet-nav-link>
                 </div>
 
+=======
+>>>>>>> parent of dc5723c (my update)
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
