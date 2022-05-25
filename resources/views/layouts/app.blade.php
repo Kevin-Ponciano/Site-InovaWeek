@@ -6,6 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         <title>{{ config('app.name', 'Odonto On') }}</title>
 
@@ -16,6 +17,8 @@
 =======
 =======
 >>>>>>> parent of dc5723c (my update)
+=======
+>>>>>>> parent of dc5723c (my update)
         <title>Odonto On{{-- config('app.name', 'Odonto On') --}}</title>
 
         <!-- Fonts -->
@@ -24,6 +27,9 @@
         <link type="image/png" sizes="32x32" rel="icon" href='{{url('assets/favicon.png')}}'>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of dc5723c (my update)
+=======
 >>>>>>> parent of dc5723c (my update)
 =======
 >>>>>>> parent of dc5723c (my update)
