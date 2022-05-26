@@ -6,15 +6,14 @@
     </x-slot>
     {{-- DIV utilizando Bootstrap 4  --}}
     <div class="container">
-        <div id="calendar">
-            CALENDARIO
-        </div>
+        <div id="calendar"></div>
+        <br>
     </div>
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#evento">
+    <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#evento">
         Launch
-    </button>
+    </button> -->
 
     <!-- Modal -->
     <div class="modal fade" id="evento" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">

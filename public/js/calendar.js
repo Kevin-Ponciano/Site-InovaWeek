@@ -1,20 +1,19 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     let calendarEl = document.getElementById('calendar');
     let calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
         locale: 'pt-BR',
 
         headerToolbar: {
-            left: 'prev, next today',
+            left: 'prev today next',
             center: 'title',
-            right: 'dayGridMonth, timeGridWeek, listWeek',
+            right: 'dayGridMonth timeGridWeek listWeek',
         },
 
-        dateClick:function(info){
+        dateClick: function (info) {
             $("#evento").modal("show");
         }
 
     });
-
     calendar.render();
 });
