@@ -14,9 +14,8 @@ A proposta inicial será que dentro desta plataforma o paciente ao se cadastrar,
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/Garchy"><img style="border-radius:50%;" src="https://pps.whatsapp.net/v/t61.24694-24/215944670_125111486562234_8374280455993374716_n.jpg?ccb=11-4&oh=1f0451780e43815cf40e8ee2ec922fb0&oe=62859900" width="100px;" alt=""/><br /><sub><b>Gabryel Alcântara<br/>Diretor do Projeto</b></sub></a><br /></td>
-    <td align="center"><a href="https://github.com/Kevin-Ponciano"><img style="border-radius: 50%;" src="https://scontent.fvix7-1.fna.fbcdn.net/v/t39.30808-6/278029718_5023943751016169_9198807347272154776_n.jpg?_nc_cat=102&ccb=1-6&_nc_sid=09cbfe&_nc_eui2=AeHbcX7rRzaAocC_arxbrkIhpAInZDahCUmkAidkNqEJSW_Bgv6eF9IkmDkRi9moqPORzvAsM--1f9EchLQjKYCh&_nc_ohc=SSpo1qMCYaAAX9UrMr1&_nc_ht=scontent.fvix7-1.fna&oh=00_AT-MfZJBQZq6tr1tN8B56rG5oRjDPCUZYGYxMgNy6oo7_A&oe=62820EC3" width="100px;" alt=""/><br /><sub><b>Kevin Ponciano<br/>Backend</b></sub></a><br/></td>
-
+    <td align="center"><a href="https://github.com/Garchy"><sub><b>Gabryel Alcântara<br/>Diretor do Projeto</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/Kevin-Ponciano"><br /><sub><b>Kevin Ponciano<br/>Backend</b></sub></a><br/></td>
   </tr>
 </table>
 
