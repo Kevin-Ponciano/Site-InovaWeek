@@ -1,11 +1,11 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Calendário
-        </h2>
-    </x-slot>
+{{--    <x-slot name="header">--}}
+{{--        <h2 class="font-semibold text-xl text-gray-800 leading-tight">--}}
+{{--            Calendário--}}
+{{--        </h2>--}}
+{{--    </x-slot>--}}
     {{-- DIV utilizando Bootstrap 4  --}}
-    <div class="container">
+    <div class="container-sm">
         <div id="calendar"></div>
         <br>
     </div>
