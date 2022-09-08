@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Evento;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
-class EventoController extends Controller
+class EventController extends Controller
 {
 
     public function index()
     {
-        return view('evento.index');
+        return view('event.calendar');
     }
 
 
@@ -26,25 +26,25 @@ class EventoController extends Controller
     }
 
 
-    public function show(Evento $evento)
+    public function show(Event $event)
     {
         //
     }
 
 
-    public function edit(Evento $evento)
+    public function edit(Event $event)
     {
         //
     }
 
 
-    public function update(Request $request, Evento $evento)
+    public function update(Request $request, Event $event)
     {
         //
     }
 
 
-    public function destroy(Evento $evento)
+    public function destroy(Event $event)
     {
         //
     }

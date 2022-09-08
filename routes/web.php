@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\BuscaController;
 use App\Http\Controllers\CadastroController;
-use App\Http\Controllers\EventoController;
+use App\Http\Controllers\EventController;
 use App\Http\Livewire\Doencas;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +22,7 @@ Route::middleware([// O Middleware verifica se o usuario esta logado
     Route::get('doencas', Doencas::class)->name('doencas');
     Route::post('doencas', Doencas::class)->name('doencas');
 
-    Route::get('/calendario',[EventoController::class, 'index'])->name('evento');
+    Route::get('/calendario',[EventController::class, 'index'])->name('event');
 });
 
 //Route::post('/views',[CadastroController::class, 'store']);

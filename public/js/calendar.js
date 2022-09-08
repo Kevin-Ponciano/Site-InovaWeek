@@ -1,14 +1,7 @@
-// import the third-party stylesheets directly from your JS
-import 'bootstrap/dist/css/bootstrap.css';
-import '@fortawesome/fontawesome-free/css/all.css'; // needs additional webpack config!
-
-import { Calendar } from '@fullcalendar/core';
-import bootstrapPlugin from '@fullcalendar/bootstrap';
-
 document.addEventListener('DOMContentLoaded', function () {
     let calendarEl = document.getElementById('calendar');
     let calendar = new FullCalendar.Calendar(calendarEl, {
-        themeSystem: 'bootstrap',
+
         initialView: 'dayGridMonth',
         locale: 'pt-BR',
         headerToolbar: {
@@ -18,8 +11,9 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         height: 550,
 
-        dateClick: function (info) {
-            $("#evento").modal("show");
+        dateClick:function(info) {
+            $("#event").modal("show");
+            console.log('clicado')
         }
 
     });
