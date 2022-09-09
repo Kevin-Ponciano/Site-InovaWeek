@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Suspeita;
 use Illuminate\Http\Request;
 
-class BuscaController extends Controller
+class SearchController extends Controller
 {
     public function index(){
         $search = request('search');

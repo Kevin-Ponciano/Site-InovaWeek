@@ -137,7 +137,7 @@
                     ajax: {
                         url: '/select2',
                         dataType: 'json',
-                        delay: 1,
+                        delay: 0,
                         processResults: data => ({
                             results: $.map(data, item => ({
                                 text: item.name_suspect,

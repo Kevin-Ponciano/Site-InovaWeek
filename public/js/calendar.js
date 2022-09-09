@@ -1,5 +1,9 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded',  () => {
+
+    let form = document.querySelector('form')
+
     let calendarEl = document.getElementById('calendar');
+
     let calendar = new FullCalendar.Calendar(calendarEl, {
 
         initialView: 'dayGridMonth',
@@ -11,11 +15,14 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         height: 550,
 
-        dateClick:function(info) {
-            $("#event").modal("show");
-            console.log('clicado')
+        dateClick:(info) => {
+            $('#event').modal('show');
         }
 
     });
     calendar.render();
+
+    document.getElementById('btnSave').addEventListener('click',()=>{
+        const formData = new formData(form);
+    })
 });
