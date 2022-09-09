@@ -132,8 +132,8 @@
             <script type="text/javascript">
                 $('#itemName').select2({
                     placeholder: 'Buscar',
-                    multiple: true,
-                    maximumSelectionSize: 1,
+                    //multiple: true,
+                    //maximumSelectionSize: 1,
                     ajax: {
                         url: '/select2',
                         dataType: 'json',
@@ -147,6 +147,7 @@
                         cache: true
                     }
                 });
+                // onload.window = $('#search-form').submit();
 
                 $('#itemName').change(function() {
                     $('#search-form').submit();
