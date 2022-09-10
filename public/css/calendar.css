@@ -1,0 +1,30 @@
+.fc .fc-daygrid-day.fc-day-today {
+    background-color: rgba(94, 157, 251,.4);
+    background-color: var(--fc-today-bg-color,rgba(94, 157, 251,.4));
+}
+.fc .fc-timegrid-col.fc-day-today {
+    background-color: rgba(94, 157, 251,.4);
+    background-color: var(--fc-today-bg-color,rgba(94, 157, 251,.1));
+}
+.fc .fc-timegrid-now-indicator-arrow {
+    position: absolute;
+    z-index: 4;
+    margin-top: -5px;
+    border-style: solid;
+    border-color: blue;
+    border-color: var(--fc-now-indicator-color,blue);
+}
+
+.fc-direction-ltr .fc-timegrid-now-indicator-arrow {
+    left: 0;
+    border-width: 5px 0 5px 6px;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.fc .fc-timegrid-now-indicator-line {
+    border-color: rgba(94, 157, 251,.4);
+    border-color: var(--fc-now-indicator-color,rgba(94, 157, 251,.4));
+
+}
+

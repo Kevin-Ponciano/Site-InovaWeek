@@ -12,14 +12,13 @@
     <link type="image/png" sizes="32x32" rel="icon" href='{{url('assets/favicon.png')}}'>
 
     <!-- Bootstrap CSS -->
-
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
+
 
     <!-- Tallwind css -->
     <script src="{{ mix('js/app.js') }}" defer> </script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-
 
     @livewireStyles
 
@@ -32,6 +31,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5/main.min.css">
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5/main.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5/locales-all.min.js"></script>
+    <script type="text/javascript">
+        let rootUrl = {!! json_encode(url('/')) !!}
+    </script>
+    <link href="{{ asset('css/calendar.css') }}" rel="stylesheet">
 
     <!-- Bootstrap 4.1 -->
     {{--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>--}}

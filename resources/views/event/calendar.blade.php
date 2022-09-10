@@ -1,3 +1,4 @@
+
 <x-app-layout>
     {{--    <x-slot name="header">--}}
     {{--        <h2 class="font-semibold text-xl text-gray-800 leading-tight">--}}
@@ -9,11 +10,6 @@
         <br>
         <div id="calendar"></div>
     </div>
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#event">
-        Launch
-    </button>
 
     <!-- Modal -->
     <div class="modal fade" id="event" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
@@ -27,9 +23,11 @@
                 </div>
                 <div class="modal-body">
 
-                    <form action="">
+                    <form id="form-calendar" action="">
+                    {{--Chave de seguraça--}}
+                    {!! csrf_field() !!}
 
-                        <div class="form-group">
+                        <div class="form-group d-none">
                             <label for="id">ID</label>
                             <input class="form-control" type="text" name="id" id="id" placeholder="" aria-describedby="helpId">
                             <small class="form-text text-muted" id="helpId">Help text</small>
@@ -45,14 +43,14 @@
                             <label for="description">Descrição</label>
                             <textarea class="form-control" name="description" id="description" rows="3"></textarea>
                         </div>
-
-                        <div class="form-group">
+                        {{--lembrete: alterar para horarios de consulta e separar data e hora para cada campo--}}
+                        <div class="form-group d-none">
                             <label for="start">start</label>
                             <input class="form-control" type="text" name="start" id="start" placeholder="" aria-describedby="helpId">
                             <small class="form-text text-muted" id="helpId">Help text</small>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group d-none">
                             <label for="end">end</label>
                             <input class="form-control" type="text" name="end" id="end" placeholder="" aria-describedby="helpId">
                             <small class="form-text text-muted" id="helpId">Help text</small>
@@ -60,7 +58,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="btnSave">Salvar</button>
+                    <button type="button" class="btn btn-success" id="btnSave">Criar</button>
                     <button type="button" class="btn btn-warning" id="btnChange">Alterar</button>
                     <button type="button" class="btn btn-danger" id="btnRemove">Remover</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
