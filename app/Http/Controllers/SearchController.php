@@ -19,7 +19,7 @@ class SearchController extends Controller
         }else{
             $sintomas = Suspeita::all();
         }
-        return view('search',['sintomas'=> $sintomas,'search'=> $search]);
+        return view('pages.search',['sintomas'=> $sintomas,'search'=> $search]);
     }
 
     public function dataAjax(Request $request)

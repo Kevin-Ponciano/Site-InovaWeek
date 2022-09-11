@@ -1,9 +1,9 @@
-// $('#start').hide(1)
-// $('#end').hide(1)
-
-
 const d = new Date()
 d.setHours(d.getHours()-3)
+
+updateColor = (value) => {
+    document.getElementById('color').value = value
+}
 
 document.addEventListener('DOMContentLoaded',  () => {
 
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded',  () => {
 
     let calendar = new FullCalendar.Calendar(calendarEl, {
         themeSystem: 'bootstrap5',
-        initialView: 'dayGridMonth',
+        initialView: 'timeGridWeek',//'dayGridMonth',
         locale: 'pt-BR',
         timeZone:'UTC',
         headerToolbar: {
@@ -29,9 +29,6 @@ document.addEventListener('DOMContentLoaded',  () => {
                 allDaySlot:false,
 
             },
-            today:{
-                backgroundColor:'red'
-            }
         },
         nowIndicator: true,
         now: d,
@@ -47,7 +44,7 @@ document.addEventListener('DOMContentLoaded',  () => {
         height: 500,
         expandRows: true,
         // events: rootUrl+'/calendario/show',
-        editable: true,
+        // editable: true,
         dayMaxEvents: true, // when too many events in a day, show the popover
         eventSources:{
             url: rootUrl+'/calendario/show',
@@ -57,13 +54,27 @@ document.addEventListener('DOMContentLoaded',  () => {
             }
         },
 
+        eventDidMount:(info) => {
+            $(info.el).tooltip({
+                title:'Paciente: ' + info.event.extendedProps.patient,
+                placement: 'top',
+                trigger: 'hover',
+                container: 'body'
+            });
+
+        },
         dateClick:(info) => {
             if(info.view.type!=='dayGridMonth'){
                 // Reseta as informações do Modal
                 form.reset();
+
+                let time = new Date(info.dateStr.replace(/[^0-9,:-]/gi,' '))
+                form.time.value = time.toLocaleString()
+
                 // Get data e hora atual e coloca no campo data
                 form.start.value = info.dateStr.replace(/[^0-9,:-]/gi,' ')
                 form.end.value = info.dateStr.replace(/[^0-9,:-]/gi,' ')
+
 
                 $('#event').modal('show')
             }
@@ -78,12 +89,18 @@ document.addEventListener('DOMContentLoaded',  () => {
                     form.id.value = res.data.id
 
                     form.title.value = res.data.title
-                    form.description.value = res.data.description
+                    form.patient.value = res.data.patient
+
+                    form.title.value = res.data.title
+                    form.observation.value = res.data.observation
+
+                    let time = new Date(info.event.startStr.replace(/[^0-9,:-]/gi,' '))
+                    form.time.value = time.toLocaleString()
 
                     form.start.value = res.data.start
                     form.end.value = res.data.end
 
-                    console.log(res.data)
+
                     $('#event').modal('show')
                 }).
             catch(
@@ -95,35 +112,39 @@ document.addEventListener('DOMContentLoaded',  () => {
                 }
             )
         },
-        eventDrop:(info) => {
-            axios.post(rootUrl+'/calendario/edit/'+info.event.id).
-            then(
-                // Se der certo, o modal será aberto com as informações do banco
-                (res) => {
-                    // Recupero as informações do Controller e as insiro no form
-                    form.id.value = res.data.id
-
-                    form.title.value = res.data.title
-                    form.description.value = res.data.description
-
-                    form.start.value = info.event.startStr.replace(/[^0-9,:-]/gi,' ')
-                    form.end.value = form.start.value
-
-                    console.log(form.start.value)
-                    $('#event').modal('show')
-                }).
-            catch(
-                // Caso um erro for encontrado será imprimido no console
-                error=>{
-                    if(error.response){
-                        console.log(error.response.data)
-                    }
-                }
-            )
-        }
+        // eventDrop:(info) => {
+        //     axios.post(rootUrl+'/calendario/edit/'+info.event.id).
+        //     then(
+        //         // Se der certo, o modal será aberto com as informações do banco
+        //         (res) => {
+        //             // Recupero as informações do Controller e as insiro no form
+        //             form.id.value = res.data.id
+        //
+        //             form.title.value = res.data.title
+        //             form.patient.value = res.data.patient
+        //             form.observation.value = res.data.observation
+        //
+        //             let time = new Date(info.event.startStr.replace(/[^0-9,:-]/gi,' '))
+        //             form.time.value = time.toLocaleString()
+        //
+        //             form.start.value = info.event.startStr.replace(/[^0-9,:-]/gi,' ')
+        //             form.end.value = form.start.value
+        //
+        //             $('#event').modal('show')
+        //         }).
+        //     catch(
+        //         // Caso um erro for encontrado será imprimido no console
+        //         error=>{
+        //             if(error.response){
+        //                 console.log(error.response.data)
+        //             }
+        //         }
+        //     )
+        // }
 
     });
     calendar.render()
+
 
     document.getElementById('btnSave').addEventListener('click',()=>{
         sendData('/calendario/store')
@@ -157,4 +178,6 @@ document.addEventListener('DOMContentLoaded',  () => {
             }
         )
     }
-});
+})
+
+

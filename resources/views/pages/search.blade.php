@@ -131,8 +131,8 @@
             @endforeach
             <script type="text/javascript">
                 $('#itemName').select2({
-                    placeholder: 'Buscar',
-                    //multiple: true,
+                    placeholder: ' Buscar',
+                    multiple: true,
                     //maximumSelectionSize: 1,
                     ajax: {
                         url: '/select2',
