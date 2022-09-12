@@ -36,7 +36,7 @@
                             <label class="btn btn-outline-primary" for="marked">Marcada</label>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group" id="divPatient">
                             <label for="patient">Paciente ID:</label>
                             <input class="form-control" name="patient" id="patient">
                         </div>
@@ -65,6 +65,11 @@
                         <div class="form-group d-none">
                             <label for="color">Color</label>
                             <input class="form-control" type="text" name="color" id="color">
+                        </div>
+
+                        <div class="form-group d-none">
+                            <label for="display">Display</label>
+                            <input class="form-control" type="text" name="display" id="display">
                         </div>
 
                     </form>

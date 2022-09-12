@@ -1,9 +1,20 @@
 const d = new Date()
 d.setHours(d.getHours()-3)
 
-updateColor = (value) => {
-    document.getElementById('color').value = value
+updateColor = (values) => {
+    document.getElementById('color').value = values
+    if(values==='green'){
+        document.getElementById('divPatient').classList.add('d-none')
+        document.getElementById('patient').value = 'Nenhum'
+        document.getElementById('display').value = 'background'
+        document.getElementById('free').value = ' '
+    }else{
+        document.getElementById('divPatient').classList.remove('d-none')
+        document.getElementById('display').value = ' '
+    }
+
 }
+
 
 document.addEventListener('DOMContentLoaded',  () => {
 
@@ -32,8 +43,8 @@ document.addEventListener('DOMContentLoaded',  () => {
         },
         nowIndicator: true,
         now: d,
-        //slotMinTime:'09:00:00',
-        //slotMaxTime:'17:00:00',
+        slotMinTime:'09:00:00',
+        slotMaxTime:'17:00:00',
         slotDuration:'01:00:00',
         slotLabelFormat: {
             hour: '2-digit',
@@ -44,7 +55,7 @@ document.addEventListener('DOMContentLoaded',  () => {
         height: 500,
         expandRows: true,
         // events: rootUrl+'/calendario/show',
-        // editable: true,
+        editable: true,
         dayMaxEvents: true, // when too many events in a day, show the popover
         eventSources:{
             url: rootUrl+'/calendario/show',
@@ -54,15 +65,15 @@ document.addEventListener('DOMContentLoaded',  () => {
             }
         },
 
-        eventDidMount:(info) => {
-            $(info.el).tooltip({
-                title:'Paciente: ' + info.event.extendedProps.patient,
-                placement: 'top',
-                trigger: 'hover',
-                container: 'body'
-            });
-
-        },
+        // eventDidMount:(info) => {
+        //     $(info.el).tooltip({
+        //         title:'Paciente: ' + info.event.extendedProps.patient,
+        //         placement: 'top',
+        //         trigger: 'hover',
+        //         container: 'body'
+        //     });
+        //
+        // },
         dateClick:(info) => {
             if(info.view.type!=='dayGridMonth'){
                 // Reseta as informações do Modal
@@ -80,7 +91,7 @@ document.addEventListener('DOMContentLoaded',  () => {
             }
 
         },
-        eventClick:(info) => {
+        eventClick:(info) => {// adicionar if para abrir somente para alterar
             axios.post(rootUrl+'/calendario/edit/'+info.event.id).
             then(
                 // Se der certo, o modal será aberto com as informações do banco
@@ -100,7 +111,7 @@ document.addEventListener('DOMContentLoaded',  () => {
                     form.start.value = res.data.start
                     form.end.value = res.data.end
 
-
+                    console.log(info.event)
                     $('#event').modal('show')
                 }).
             catch(

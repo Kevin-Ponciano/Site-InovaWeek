@@ -17,13 +17,15 @@ return new class extends Migration
             $table->id();
 
             // Criar chave estrangeira para paciente
-            $table->string('title'); //title = Status
-            $table->string('patient');// Configurar relacionamento one to on
+            $table->string('title')->nullable(); //title = Status
+            $table->string('patient')->nullable();// Configurar relacionamento one to on
             $table->string('observation')->nullable();
 
             $table->dateTime('start');
             $table->dateTime('end');
 
+            $table->string('color')->nullable();
+            $table->string('display')->nullable();
             $table->timestamps();
         });
     }
