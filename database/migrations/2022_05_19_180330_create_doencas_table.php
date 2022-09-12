@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        # Lembrete: alterar para table suspeitas
         Schema::create('doencas', function (Blueprint $table) {
             $table->id();
             $table->string('nome_doenca');

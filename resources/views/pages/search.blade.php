@@ -131,13 +131,13 @@
             @endforeach
             <script type="text/javascript">
                 $('#itemName').select2({
-                    placeholder: 'Buscar',
+                    placeholder: ' Buscar',
                     multiple: true,
-                    maximumSelectionSize: 1,
+                    //maximumSelectionSize: 1,
                     ajax: {
                         url: '/select2',
                         dataType: 'json',
-                        delay: 1,
+                        delay: 0,
                         processResults: data => ({
                             results: $.map(data, item => ({
                                 text: item.name_suspect,
@@ -147,6 +147,7 @@
                         cache: true
                     }
                 });
+                // onload.window = $('#search-form').submit();
 
                 $('#itemName').change(function() {
                     $('#search-form').submit();

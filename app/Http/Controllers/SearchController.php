@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Suspeita;
 use Illuminate\Http\Request;
 
-class BuscaController extends Controller
+class SearchController extends Controller
 {
     public function index(){
         $search = request('search');
@@ -19,7 +19,7 @@ class BuscaController extends Controller
         }else{
             $sintomas = Suspeita::all();
         }
-        return view('search',['sintomas'=> $sintomas,'search'=> $search]);
+        return view('pages.search',['sintomas'=> $sintomas,'search'=> $search]);
     }
 
     public function dataAjax(Request $request)
