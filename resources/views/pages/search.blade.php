@@ -13,7 +13,7 @@
                                     <div class="row">
                                         <form action="/buscar" method="get" id="search-form">
                                             <div class="col-md-12">
-                                                <select class="js-example-responsive" style="width: 50%" id="itemName" name="search">
+                                                <select class="js-example-responsive form-control" style="width: 50%" id="itemName" name="search">
                                                 </select>
                                             </div>
                                         </form>
@@ -132,7 +132,8 @@
             <script type="text/javascript">
                 $('#itemName').select2({
                     placeholder: ' Buscar',
-                    multiple: true,
+                    theme: "bootstrap-5",
+                    //multiple: true,
                     //maximumSelectionSize: 1,
                     ajax: {
                         url: '/select2',

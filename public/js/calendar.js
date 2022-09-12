@@ -6,8 +6,8 @@ updateColor = (values) => {
     if(values==='green'){
         document.getElementById('divPatient').classList.add('d-none')
         document.getElementById('patient').value = 'Nenhum'
-        document.getElementById('display').value = 'background'
-        document.getElementById('free').value = ' '
+        // document.getElementById('display').value = 'background'
+        // document.getElementById('free').value = ' '
     }else{
         document.getElementById('divPatient').classList.remove('d-none')
         document.getElementById('display').value = ' '
@@ -123,38 +123,44 @@ document.addEventListener('DOMContentLoaded',  () => {
                 }
             )
         },
-        // eventDrop:(info) => {
-        //     axios.post(rootUrl+'/calendario/edit/'+info.event.id).
-        //     then(
-        //         // Se der certo, o modal será aberto com as informações do banco
-        //         (res) => {
-        //             // Recupero as informações do Controller e as insiro no form
-        //             form.id.value = res.data.id
-        //
-        //             form.title.value = res.data.title
-        //             form.patient.value = res.data.patient
-        //             form.observation.value = res.data.observation
-        //
-        //             let time = new Date(info.event.startStr.replace(/[^0-9,:-]/gi,' '))
-        //             form.time.value = time.toLocaleString()
-        //
-        //             form.start.value = info.event.startStr.replace(/[^0-9,:-]/gi,' ')
-        //             form.end.value = form.start.value
-        //
-        //             $('#event').modal('show')
-        //         }).
-        //     catch(
-        //         // Caso um erro for encontrado será imprimido no console
-        //         error=>{
-        //             if(error.response){
-        //                 console.log(error.response.data)
-        //             }
-        //         }
-        //     )
-        // }
+        eventDrop:(info) => {
+            axios.post(rootUrl+'/calendario/edit/'+info.event.id).
+            then(
+                // Se der certo, o modal será aberto com as informações do banco
+                (res) => {
+                    // Recupero as informações do Controller e as insiro no form
+                    form.id.value = res.data.id
+
+                    form.title.value = res.data.title
+                    form.patient.value = res.data.patient
+                    form.observation.value = res.data.observation
+
+                    let time = new Date(info.event.startStr.replace(/[^0-9,:-]/gi,' '))
+                    form.time.value = time.toLocaleString()
+
+                    form.start.value = info.event.startStr.replace(/[^0-9,:-]/gi,' ')
+                    form.end.value = form.start.value
+
+                    $('#event').modal('show')
+                }).
+            catch(
+                // Caso um erro for encontrado será imprimido no console
+                error=>{
+                    if(error.response){
+                        console.log(error.response.data)
+                    }
+                }
+            )
+        }
 
     });
     calendar.render()
+    // calenUpdate =()=>{
+    //     calendar.refetchEvents()
+    //     console.log('refresh')
+    // }
+    // setInterval(calenUpdate,1000)
+
 
 
     document.getElementById('btnSave').addEventListener('click',()=>{
