@@ -51,24 +51,20 @@
                             <input class="form-control" type="text" name="time" id="time" value="Sem hora marcada" readonly
                                    style="display: block;width: 100%;padding: 0.375rem 0;margin-bottom: 0;line-height: 1.5;color: #212529;background-color: transparent;border: solid transparent;border-width: 1px 0;">
                         </div>
-                        {{--lembrete: alterar para horarios de consulta e separar data e hora para cada campo--}}
+
                         <div class="form-group d-none">
-                            <label for="start">start</label>
                             <input class="form-control" type="text" name="start" id="start">
                         </div>
 
                         <div class="form-group d-none">
-                            <label for="end">end</label>
                             <input class="form-control" type="text" name="end" id="end">
                         </div>
 
                         <div class="form-group d-none">
-                            <label for="color">Color</label>
                             <input class="form-control" type="text" name="color" id="color">
                         </div>
 
                         <div class="form-group d-none">
-                            <label for="display">Display</label>
                             <input class="form-control" type="text" name="display" id="display">
                         </div>
 

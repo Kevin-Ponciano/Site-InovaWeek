@@ -1,3 +1,10 @@
+// lembrate: configurar timeGridWeek para começar com o dia atual
+// Bloquear acesso a consulta para o usuario
+// Definir horário como disponível utilizando evento e com background
+// Para isso, n posso criar um novo evento, e sim só alterar ele
+// Criar um mini calendário com as consultas de hoje
+// Cada consulta deve ser única naquele horario
+
 const d = new Date()
 d.setHours(d.getHours()-3)
 
@@ -31,8 +38,6 @@ document.addEventListener('DOMContentLoaded',  () => {
             left: 'prev today next',
             center: 'title',
             right: 'dayGridMonth timeGridWeek timeGridDay listMonth',
-            // lembrate: configurar timeGridWeek para começar com o dia atual
-            // Bloquear acesso a consulta para o usuario
         },
         views:{
             timeGrid:{
