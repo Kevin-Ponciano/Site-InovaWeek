@@ -5,9 +5,11 @@
     {{--        </h2>--}}
     {{--    </x-slot>--}}
     {{-- DIV utilizando Bootstrap 4  --}}
-    <div class="container-sm">
+    <br>
+    <div class="container-sm shadow bg-white">
         <br>
-        <div id="calendar"></div>
+        <div class="" id="calendar"></div>
+        <br>
     </div>
 
     <!-- Modal -->
@@ -29,26 +31,27 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="radio" class="btn-check" name="title" id="free" autocomplete="off" value='LIVRE' onclick='updateColor("green");'>
+                            <input type="radio" class="btn-check" name="title" id="free" autocomplete="off" value='LIVRE' onclick='updateColor("#00e600");'>
                             <label class="btn btn-outline-success" for="free">Livre</label>
 
-                            <input type="radio" class="btn-check" name="title" id="marked" autocomplete="off" value='MARCADA' onclick='updateColor(" ");'>
+                            <input type="radio" class="btn-check" name="title" id="marked" autocomplete="off" value='MARCADA' onclick='updateColor(" ");' checked>
                             <label class="btn btn-outline-primary" for="marked">Marcada</label>
                         </div>
+                        <br>
 
                         <div class="form-group" id="divPatient">
                             <label for="patient">Paciente ID:</label>
-                            <input class="form-control" name="patient" id="patient">
+                            <input class="form-control shadow" name="patient" id="patient">
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group ">
                             <label for="observation">Observação</label>
-                            <textarea class="form-control" name="observation" id="observation" rows="2"></textarea>
+                            <textarea class="form-control shadow" name="observation" id="observation" rows="2"></textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="time">Horário Consulta</label>
-                            <input class="form-control" type="text" name="time" id="time" value="Sem hora marcada" readonly
+                            <input class="form-control" type="text" name="time" id="time" value="Sem hora marcada"
                                    style="display: block;width: 100%;padding: 0.375rem 0;margin-bottom: 0;line-height: 1.5;color: #212529;background-color: transparent;border: solid transparent;border-width: 1px 0;">
                         </div>
 
@@ -66,6 +69,10 @@
 
                         <div class="form-group d-none">
                             <input class="form-control" type="text" name="display" id="display">
+                        </div>
+
+                        <div class="form-group d-none">
+                            <input class="form-control" type="text" name="overlap" id="overlap" value=false>
                         </div>
 
                     </form>

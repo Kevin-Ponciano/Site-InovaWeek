@@ -5,19 +5,21 @@
 // Criar um mini calendário com as consultas de hoje
 // Cada consulta deve ser única naquele horario
 
+
 const d = new Date()
 d.setHours(d.getHours()-3)
 
 updateColor = (values) => {
     document.getElementById('color').value = values
-    if(values==='green'){
+    if(values==='#00e600'){
         document.getElementById('divPatient').classList.add('d-none')
         document.getElementById('patient').value = 'Nenhum'
-        // document.getElementById('display').value = 'background'
+        document.getElementById('display').value = 'background'
         // document.getElementById('free').value = ' '
     }else{
         document.getElementById('divPatient').classList.remove('d-none')
         document.getElementById('display').value = ' '
+        document.getElementById('overlap').value = 'false'
     }
 
 }
@@ -95,6 +97,9 @@ document.addEventListener('DOMContentLoaded',  () => {
                 $('#event').modal('show')
             }
 
+        },
+        eventOverlap: function(stillEvent, movingEvent) {
+            return stillEvent.allDay && movingEvent.allDay;
         },
         eventClick:(info) => {// adicionar if para abrir somente para alterar
             axios.post(rootUrl+'/calendario/edit/'+info.event.id).

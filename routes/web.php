@@ -17,7 +17,7 @@ Route::middleware([
 
     Route::get('/buscar', [SearchController::class, 'index'])->name('buscar');
 
-    Route::get('/select2', [SearchController::class, 'dataAjax']);
+    Route::get('/select2.css', [SearchController::class, 'dataAjax']);
 
     Route::get('doencas', Doencas::class)->name('doencas');
     Route::post('doencas', Doencas::class)->name('doencas');

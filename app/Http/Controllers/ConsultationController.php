@@ -20,7 +20,7 @@ class ConsultationController extends Controller
     public function store(Request $request)
     {
         request()->validate(Consultation::$rules);
-        $consultation=Consultation::create($request->all());
+        $consultation=Consultation::create($request->all(),$request->overlap = false);
     }
 
     public function show(Consultation $consultation)

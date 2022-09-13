@@ -6,13 +6,13 @@
         <div class="flex flex-col">
             <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                    <div class="overflow-hidden">
+                    <div class="overflow-hidden ">
                         <table class="min-w-full">
                             <tr>
-                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-1 text-center">
-                                    <div class="row">
+                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-1 text-center ">
+                                    <div class="row ">
                                         <form action="/buscar" method="get" id="search-form">
-                                            <div class="col-md-12">
+                                            <div class="col-md-12 ">
                                                 <select class="js-example-responsive form-control" style="width: 50%" id="itemName" name="search">
                                                 </select>
                                             </div>
@@ -28,7 +28,7 @@
     </x-slot>
 
     <div class="flex justify-center">
-        <div class="mb-3 xl:w-9/12">
+        <div class="mb-1 xl:w-9/12">
             @foreach($sintomas as $sintoma)
             <h2 class="font-semibold text-2xl flex justify-center my-8">{{$sintoma->name_suspect}}</h2>
             <div class="grid grid-cols-3 gap-8">

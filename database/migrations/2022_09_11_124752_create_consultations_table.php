@@ -26,6 +26,7 @@ return new class extends Migration
 
             $table->string('color')->nullable();
             $table->string('display')->nullable();
+            $table->string('overlap')->nullable();
             $table->timestamps();
         });
     }

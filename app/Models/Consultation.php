@@ -10,7 +10,6 @@ class Consultation extends Model
     use HasFactory;
 
     static $rules = [
-        'title'=>'required',
         'patient'=>'required_if:title,"MARCADA"'
 
         // 'observation'=>'required',
@@ -18,5 +17,5 @@ class Consultation extends Model
         // 'end'=>'required'
     ];
 
-    protected $fillable=['title','patient','observation','start','end','color', 'display'];
+    protected $fillable=['title','patient','observation','start','end','color', 'display', 'overlap'];
 }
