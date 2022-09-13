@@ -131,14 +131,24 @@
             @endforeach
             <script type="text/javascript">
                 $('#itemName').select2({
-                    placeholder: ' Buscar',
+                    placeholder:'@if($sintomas[0]->name_suspect!=$sintoma->name_suspect){{" Buscar"}}@else{{$sintoma->name_suspect}}@endif',
                     theme: "bootstrap-5",
-                    //multiple: true,
-                    //maximumSelectionSize: 1,
+                    language: $.extend({},
+                        $.fn.select2.defaults.defaults.language, {
+                            noResults:()=> {
+                                return $("<span></span>")
+                            },
+                            searching:()=> {
+                                return $("<span></span>")
+                            },
+                            errorLoading:()=> {
+                                return $("<span></span>")
+                            },
+                        }),
                     ajax: {
                         url: '/select2',
                         dataType: 'json',
-                        delay: 0,
+                        delay: 1,
                         processResults: data => ({
                             results: $.map(data, item => ({
                                 text: item.name_suspect,
@@ -146,10 +156,9 @@
                             }))
                         }),
                         cache: true
-                    }
+                    },
                 });
                 // onload.window = $('#search-form').submit();
-
                 $('#itemName').change(function() {
                     $('#search-form').submit();
                 });
