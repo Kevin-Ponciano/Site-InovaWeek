@@ -17,5 +17,5 @@ class Consultation extends Model
         // 'end'=>'required'
     ];
 
-    protected $fillable=['title','patient','observation','start','end','color', 'display', 'overlap'];
+    protected $fillable=['title','patient','observation','start','end','color', 'display'];
 }

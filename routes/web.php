@@ -28,7 +28,9 @@ Route::middleware([
     // Routes da pagina calendario
     Route::get('/calendario', [ConsultationController::class, 'index'])->name('calendar');
     Route::post('/calendario/store', [ConsultationController::class, 'store']);
+
     Route::post('/calendario/show', [ConsultationController::class, 'show']);
+    Route::post('/calendario/show/{id}', [ConsultationController::class, 'showUser']);
     // route edit e update para atualizar um evento
     Route::post('/calendario/edit/{id}', [ConsultationController::class, 'edit']);
     Route::post('/calendario/update/{consultation}', [ConsultationController::class, 'update']); // lembrete: mudar event para ConultationControllerulta

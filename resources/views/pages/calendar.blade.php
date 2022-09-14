@@ -22,8 +22,8 @@
                 <div class="modal-body">
 
                     <form id="form-calendar" action="">
-                    {{--Chave de seguraça--}}
-                    {!! csrf_field() !!}
+                        {{--Chave de seguraça--}}
+                        {!! csrf_field() !!}
 
                         <div class="form-group d-none">
                             <label for="id">ID</label>
@@ -70,18 +70,13 @@
                         <div class="form-group d-none">
                             <input class="form-control" type="text" name="display" id="display">
                         </div>
-
-                        <div class="form-group d-none">
-                            <input class="form-control" type="text" name="overlap" id="overlap" value=false>
-                        </div>
-
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success" id="btnSave">Criar</button>
                     <button type="button" class="btn btn-warning" id="btnChange">Alterar</button>
                     <button type="button" class="btn btn-danger" id="btnRemove">Remover</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
 
                 </div>
             </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Consultation;
 use Illuminate\Http\Request;
+use function Illuminate\Events\queueable;
 
 class ConsultationController extends Controller
 {
@@ -20,12 +21,28 @@ class ConsultationController extends Controller
     public function store(Request $request)
     {
         request()->validate(Consultation::$rules);
-        $consultation=Consultation::create($request->all(),$request->overlap = false);
+        $consultation=Consultation::create($request->all());
     }
 
     public function show(Consultation $consultation)
     {
         $consultation = Consultation::all();
+
+        return response()->json($consultation);
+    }
+
+    public function showUser($id, Consultation $consultation)
+    {
+        $consultation = Consultation::all();
+
+        @auth('web');
+        foreach ($consultation as $consult)
+        {
+            if($consult->id != $id){
+                $consult->display = 'background';
+                $consult->color = 'red';
+            }
+        }
 
         return response()->json($consultation);
     }
