@@ -22,6 +22,11 @@
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{route('scheduling')}}" :active="request()->routeIs('scheduling')">
+                        {{'Agenda'}}
+                    </x-jet-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('buscar') }}" :active="request()->routeIs('buscar')">
                         {{('Diagnóstico Diferencial') }}
                     </x-jet-nav-link>
@@ -36,16 +41,6 @@
                 {{-- {{'Registro de Doenças'}}--}}
                 {{-- </x-jet-nav-link>--}}
                 {{-- </div>--}}
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{route('calendar')}}" :active="request()->routeIs('calendar')">
-                        {{'Calendário'}}
-                    </x-jet-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{route('scheduling')}}" :active="request()->routeIs('scheduling')">
-                        {{'Agenda'}}
-                    </x-jet-nav-link>
-                </div>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
