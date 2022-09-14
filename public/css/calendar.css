@@ -46,7 +46,9 @@
 .fc .fc-bg-event .fc-event-title{
     color:green;
 }
-
+.fc .fc-bg-event .fc-event-title {
+    color: transparent;
+}
 /*
 i wish this required CSS was better documented :(
 https://github.com/FezVrasta/popper.js/issues/674
