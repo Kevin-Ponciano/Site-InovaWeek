@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ConsultationController;
+use App\Http\Controllers\SearchController;
 use App\Http\Livewire\Doencas;
 use Illuminate\Support\Facades\Route;
 
@@ -26,14 +26,14 @@ Route::middleware([
     Route::get('/agenda', fn() => view('pages.scheduling'))->name('scheduling');
 
     // Routes da pagina calendario
-    Route::get('/calendario',[ConsultationController::class, 'index'])->name('calendar');
-    Route::post('/calendario/store',[ConsultationController::class, 'store']);
-    Route::post('/calendario/show',[ConsultationController::class, 'show']);
+    Route::get('/calendario', [ConsultationController::class, 'index'])->name('calendar');
+    Route::post('/calendario/store', [ConsultationController::class, 'store']);
+    Route::post('/calendario/show', [ConsultationController::class, 'show']);
     // route edit e update para atualizar um evento
-    Route::post('/calendario/edit/{id}',[ConsultationController::class, 'edit']);
-    Route::post('/calendario/update/{consultation}',[ConsultationController::class, 'update']); // lembrete: mudar event para ConultationControllerulta
+    Route::post('/calendario/edit/{id}', [ConsultationController::class, 'edit']);
+    Route::post('/calendario/update/{consultation}', [ConsultationController::class, 'update']); // lembrete: mudar event para ConultationControllerulta
 
-    Route::post('/calendario/destroy/{id}',[ConsultationController::class, 'destroy']);
+    Route::post('/calendario/destroy/{id}', [ConsultationController::class, 'destroy']);
 });
 
 //Route::post('/views',[CadastroController::class, 'store']);
