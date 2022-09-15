@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ConsultationController;
-use App\Http\Controllers\SearchController;
+use App\Http\Controllers\SuspectController;
 use App\Http\Livewire\Doencas;
 use Illuminate\Support\Facades\Route;
 
@@ -14,10 +14,9 @@ Route::middleware([
     Route::get('/', fn() => view('pages.dashboard'))->name('dashboard');
     Route::get('/dashboard', fn() => view('pages.dashboard'))->name('dashboard');
 
-
-    Route::get('/buscar', [SearchController::class, 'index'])->name('buscar');
-
-    Route::get('/select2.css', [SearchController::class, 'dataAjax']);
+    // Routes para realizar a pesquisa
+    Route::get('/buscar', [SuspectController::class, 'index'])->name('buscar');
+    Route::get('/select2', [SuspectController::class, 'dataAjax']);
 
     Route::get('doencas', Doencas::class)->name('doencas');
     Route::post('doencas', Doencas::class)->name('doencas');

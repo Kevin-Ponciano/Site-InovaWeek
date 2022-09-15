@@ -10,7 +10,7 @@ class Consultation extends Model
     use HasFactory;
 
     static $rules = [
-        'patient'=>'required_if:title,"MARCADA"'
+        'patient'=>'required_unless:title,"LIVRE"'
 
         // 'observation'=>'required',
         // 'start'=>'required',

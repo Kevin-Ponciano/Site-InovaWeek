@@ -4,6 +4,7 @@
 // Para isso, n posso criar um novo evento, e sim só alterar ele
 // Criar um mini calendário com as consultas de hoje
 // Cada consulta deve ser única naquele horario
+// Tranferir toda regra do calendar.js para o Controller
 
 
 
@@ -20,10 +21,11 @@ updateColor = (values) => {
         document.getElementById('divPatient').classList.add('d-none')
         document.getElementById('patient').value = 'Nenhum'
         document.getElementById('display').value = 'background'
-        // document.getElementById('free').value = ' '
     } else {
         document.getElementById('divPatient').classList.remove('d-none')
         document.getElementById('display').value = ' '
+        document.getElementById('patient').value = ' '
+
     }
 
 }
@@ -74,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         editable: true,
         dayMaxEvents: true, // when too many events in a day, show the popover
         eventSources:{
-            url: rootUrl+'/calendario/show',
+            url: rootUrl+'/calendario/show/24',
             method:'POST',
             extraParams: {
                 _token: form._token.value,
@@ -119,10 +121,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         // Recupero as informações do Controller e as insiro no form
                         form.id.value = res.data.id
 
-                        form.title.value = res.data.title
-                        form.patient.value = res.data.patient
+                        form.title.value = 'MARCADA'
+                        form.patient.value = ''
 
-                        form.title.value = res.data.title
                         form.observation.value = res.data.observation
 
                         let time = new Date(info.event.startStr.replace(/[^0-9,:-]/gi, ' '))
@@ -131,7 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         form.start.value = res.data.start
                         form.end.value = res.data.end
 
-                        console.log(info.event._def.ui.display)
                         $('#event').modal('show')
                     }).catch(
                     // Caso um erro for encontrado será imprimido no console
@@ -175,9 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
     });
-    let e = calendar.getEventById('2')
-    // e = calendar.getEvents()
-    console.log(e)
+
     calendar.render()
 
     // calenUpdate =()=>{

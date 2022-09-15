@@ -20,8 +20,11 @@ class ConsultationController extends Controller
 
     public function store(Request $request)
     {
+        $a = $request->all();
         request()->validate(Consultation::$rules);
-        $consultation=Consultation::create($request->all());
+        $a['title'] = $a['patient'];
+
+        $consultation=Consultation::create($a);
     }
 
     public function show(Consultation $consultation)

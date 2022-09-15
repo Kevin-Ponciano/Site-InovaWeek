@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Suspeita;
+use App\Models\Suspect;
 use Illuminate\Http\Request;
 
-class SearchController extends Controller
+class SuspectController extends Controller
 {
     public function index(){
         $search = request('search');
 
         if($search) {
-            $sintomas = Suspeita::where([
+            $suspects = Suspect::where([
                 ['name_suspect',
-                'like',
-                '%'.$search.'%']
+                    'like',
+                    '%'.$search.'%']
             ])->get();
         }else{
-            $sintomas = Suspeita::all();
+            $suspects = Suspect::all();
         }
-        return view('pages.search',['sintomas'=> $sintomas,'search'=> $search]);
+        return view('pages.search',['suspects'=> $suspects,'search'=> $search]);
     }
 
     public function dataAjax(Request $request)
@@ -28,7 +28,7 @@ class SearchController extends Controller
 
         if($request->has('q')){
             $search = $request->q;
-            $data =Suspeita::select("id","name_suspect")
+            $data =Suspect::select("id","name_suspect")
                 ->where('name_suspect','LIKE','%'.$search.'%')
                 ->get();
         }
