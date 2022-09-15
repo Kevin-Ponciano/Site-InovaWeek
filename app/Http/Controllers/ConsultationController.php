@@ -22,8 +22,14 @@ class ConsultationController extends Controller
     {
         $a = $request->all();
         request()->validate(Consultation::$rules);
-        $a['title'] = $a['patient'];
 
+
+
+        if($a['title'] =='LIVRE'){
+            $a['title'] = null;
+        }else{
+            $a['title'] = $a['patient'];
+        }
         $consultation=Consultation::create($a);
     }
 
@@ -38,12 +44,13 @@ class ConsultationController extends Controller
     {
         $consultation = Consultation::all();
 
-        @auth('web');
         foreach ($consultation as $consult)
         {
-            if($consult->id != $id){
+            if($consult->id != $id && $consult->patient != null){
                 $consult->display = 'background';
                 $consult->color = 'red';
+            }else{
+                $consult->title = 'Minha Consuta';
             }
         }
 

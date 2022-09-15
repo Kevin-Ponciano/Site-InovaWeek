@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 // O Middleware verifica se o usuario esta logado
 Route::middleware([
-    'auth:sanctum',
+    'auth:web',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
@@ -32,7 +32,7 @@ Route::middleware([
     Route::post('/calendario/show/{id}', [ConsultationController::class, 'showUser']);
     // route edit e update para atualizar um evento
     Route::post('/calendario/edit/{id}', [ConsultationController::class, 'edit']);
-    Route::post('/calendario/update/{consultation}', [ConsultationController::class, 'update']); // lembrete: mudar event para ConultationControllerulta
+    Route::post('/calendario/update/{consultation}', [ConsultationController::class, 'update']);
 
     Route::post('/calendario/destroy/{id}', [ConsultationController::class, 'destroy']);
 });
