@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         editable: true,
         dayMaxEvents: true, // when too many events in a day, show the popover
         eventSources:{
-            url: rootUrl+'/calendario/show/1',
+            url: rootUrl+'/calendario/show',
             method:'POST',
             extraParams: {
                 _token: form._token.value,
@@ -101,34 +101,39 @@ document.addEventListener('DOMContentLoaded', () => {
             return stillEvent.allDay && movingEvent.allDay;
         },
         eventClick: (info) => {// adicionar if para abrir somente para alterar
-            axios.post(rootUrl + '/calendario/edit/' + info.event.id).then(
-                // Se der certo, o modal será aberto com as informações do banco
-                (res) => {
-                    // Recupero as informações do Controller e as insiro no form
-                    form.id.value = res.data.id
+            if(info.event._def.ui.display === 'background'){
+                axios.post(rootUrl + '/calendario/edit/' + info.event.id).then(
+                    // Se der certo, o modal será aberto com as informações do banco
+                    (res) => {
+                        // Recupero as informações do Controller e as insiro no form
+                        form.id.value = res.data.id
 
-                    form.title.value = res.data.title
-                    form.patient.value = res.data.patient
+                        form.title.value = res.data.title
+                        form.patient.value = res.data.patient
 
-                    form.title.value = res.data.title
-                    form.observation.value = res.data.observation
+                        form.title.value = res.data.title
+                        form.observation.value = res.data.observation
 
-                    let time = new Date(info.event.startStr.replace(/[^0-9,:-]/gi, ' '))
-                    form.time.value = time.toLocaleString()
+                        let time = new Date(info.event.startStr.replace(/[^0-9,:-]/gi, ' '))
+                        form.time.value = time.toLocaleString()
 
-                    form.start.value = res.data.start
-                    form.end.value = res.data.end
+                        form.start.value = res.data.start
+                        form.end.value = res.data.end
 
-                    console.log(info.event)
-                    $('#event').modal('show')
-                }).catch(
-                // Caso um erro for encontrado será imprimido no console
-                error => {
-                    if (error.response) {
-                        console.log(error.response.data)
+                        console.log(info.event._def.ui.display)
+                        $('#event').modal('show')
+                    }).catch(
+                    // Caso um erro for encontrado será imprimido no console
+                    error => {
+                        if (error.response) {
+                            console.log(error.response.data)
+                        }
                     }
-                }
-            )
+                )
+            }else{
+                console.log('bloqueado')
+            }
+
         },
         eventDrop: (info) => {
             axios.post(rootUrl + '/calendario/edit/' + info.event.id).then(
