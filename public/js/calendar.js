@@ -6,8 +6,13 @@
 // Cada consulta deve ser única naquele horario
 
 
+
 const d = new Date()
 d.setHours(d.getHours() - 3)
+
+// window.addEventListener('contextmenu', (event) => {
+//     event.preventDefault()
+// })
 
 updateColor = (values) => {
     document.getElementById('color').value = values
@@ -32,13 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let calendar = new FullCalendar.Calendar(calendarEl, {
         themeSystem: 'bootstrap5',
-        initialView: 'timeGridWeek',//'dayGridMonth',
+        initialView: 'timeGridFourDay',//'dayGridMonth',
         locale: 'pt-BR',
         timeZone: 'UTC',
         headerToolbar: {
             left: 'prev today next',
             center: 'title',
-            right: 'dayGridMonth timeGridWeek timeGridDay listMonth',
+            right: 'dayGridMonth timeGridFourDay timeGridDay listMonth',
         },
         views: {
             timeGrid: {
@@ -46,6 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 allDaySlot: false,
 
             },
+            timeGridFourDay: {
+                type: 'timeGrid',
+                duration: { days: 7 },
+                buttonText: 'Semana'
+            }
         },
         nowIndicator: true,
         now: d,
@@ -84,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (info.view.type !== 'dayGridMonth') {
                 // Reseta as informações do Modal
                 form.reset();
+                document.getElementById('divPatient').classList.remove('d-none')
 
                 let time = new Date(info.dateStr.replace(/[^0-9,:-]/gi, ' '))
                 form.time.value = time.toLocaleString()
