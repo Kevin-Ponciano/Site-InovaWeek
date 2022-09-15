@@ -105,6 +105,8 @@
     // Criar um mini calendário com as consultas de hoje
     // Cada consulta deve ser única naquele horario
     // Tranferir toda regra do calendar.js para o Controller
+    // adiciinar legenda das cores
+    // corrigir o botao alterar
 
 
     const d = new Date()
