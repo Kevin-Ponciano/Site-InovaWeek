@@ -13,7 +13,8 @@
                                     <div class="row ">
                                         <form action="/buscar" method="get" id="search-form">
                                             <div class="col-md-12 ">
-                                                <select class="js-example-responsive form-control" style="width: 50%" id="itemName" name="search">
+                                                <select class="js-example-responsive form-control" style="width: 50%"
+                                                        id="itemName" name="search">
                                                 </select>
                                             </div>
                                         </form>
@@ -29,119 +30,120 @@
 
     <div class="flex justify-center">
         <div class="mb-1 xl:w-9/12">
-            @foreach($sintomas as $sintoma)
-            <h2 class="font-semibold text-2xl flex justify-center my-8">{{$sintoma->name_suspect}}</h2>
-            <div class="grid grid-cols-3 gap-8">
+            @foreach($suspects as $suspect)
+                <h2 class="font-semibold text-2xl flex justify-center my-8">{{$suspect->name_suspect}}</h2>
+                <div class="grid grid-cols-3 gap-8">
 
-                <div class="flex justify-center">
-                    <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
-                        <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Diagnóstico Diferencial</h5>
-                        <p class="text-gray-700 text-base mb-4 font-medium">
-                            @foreach($sintoma->differential_diagnosis as $differential_diagnosis)
-                            <br>- {{$differential_diagnosis}}
-                            @endforeach
-                        </p>
+                    <div class="flex justify-center">
+                        <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
+                            <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Diagnóstico
+                                Diferencial</h5>
+                            <p class="text-gray-700 text-base mb-4 font-medium">
+                                @foreach($suspect->differential_diagnosis as $differential_diagnosis)
+                                    <br>- {{$differential_diagnosis}}
+                                @endforeach
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center">
+                        <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
+                            <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Sintomas</h5>
+                            <p class="text-gray-700 text-base mb-4 font-medium">
+                                @foreach($suspect->symptoms as $symptoms)
+                                    <br>- {{$symptoms}}
+                                @endforeach
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center">
+                        <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
+                            <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Tratamento</h5>
+                            <p class="text-gray-700 text-base mb-4 font-medium">
+                                @foreach($suspect->treatment as $treatment)
+                                    <br>- {{$treatment}}
+                                @endforeach
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center">
+                        <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
+                            <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Exames</h5>
+                            <p class="text-gray-700 text-base mb-4 font-medium">
+                                @foreach($suspect->exams as $exams)
+                                    <br>- {{$exams}}
+                                @endforeach
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center">
+                        <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
+                            <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Causas</h5>
+                            <p class="text-gray-700 text-base mb-4 font-medium">
+                                @foreach($suspect->provoked as $provoked)
+                                    <br>- {{$provoked}}
+                                @endforeach
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center">
+                        <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
+                            <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Sinais</h5>
+                            <p class="text-gray-700 text-base mb-4 font-medium">
+                                @foreach($suspect->signals as $signals)
+                                    <br>- {{$signals}}
+                                @endforeach
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="flex justify-center">
-                    <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
-                        <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Sintomas</h5>
-                        <p class="text-gray-700 text-base mb-4 font-medium">
-                            @foreach($sintoma->symptoms as $symptoms)
-                            <br>- {{$symptoms}}
-                            @endforeach
-                        </p>
-                    </div>
-                </div>
 
-                <div class="flex justify-center">
-                    <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
-                        <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Tratamento</h5>
-                        <p class="text-gray-700 text-base mb-4 font-medium">
-                            @foreach($sintoma->treatment as $treatment)
-                            <br>- {{$treatment}}
-                            @endforeach
-                        </p>
-                    </div>
-                </div>
-
-                <div class="flex justify-center">
-                    <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
-                        <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Exames</h5>
-                        <p class="text-gray-700 text-base mb-4 font-medium">
-                            @foreach($sintoma->exams as $exams)
-                            <br>- {{$exams}}
-                            @endforeach
-                        </p>
-                    </div>
-                </div>
-
-                <div class="flex justify-center">
-                    <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
-                        <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Causas</h5>
-                        <p class="text-gray-700 text-base mb-4 font-medium">
-                            @foreach($sintoma->provoked as $provoked)
-                            <br>- {{$provoked}}
-                            @endforeach
-                        </p>
-                    </div>
-                </div>
-
-                <div class="flex justify-center">
-                    <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
-                        <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Sinais</h5>
-                        <p class="text-gray-700 text-base mb-4 font-medium">
-                            @foreach($sintoma->signals as $signals)
-                            <br>- {{$signals}}
-                            @endforeach
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- <br><b>Sintomas:</b>
-                @foreach($sintoma->symptoms as $symptoms)
-                {{$symptoms}}
+                <!-- <br><b>Sintomas:</b>
+                @foreach($suspect->symptoms as $symptoms)
+                    {{$symptoms}}
                 @endforeach
                 <br><b>Tratamento:</b>
-                @foreach($sintoma->treatment as $treatment)
-                {{$treatment}}
+                @foreach($suspect->treatment as $treatment)
+                    {{$treatment}}
                 @endforeach
                 <br><b>Diagnóstico Diferencial:</b>
-                @foreach($sintoma->differential_diagnosis as $differential_diagnosis)
-                {{$differential_diagnosis}}
+                @foreach($suspect->differential_diagnosis as $differential_diagnosis)
+                    {{$differential_diagnosis}}
                 @endforeach
                 <br><b>Exames:</b>
-                @foreach($sintoma->exams as $exams)
-                {{$exams}}
+                @foreach($suspect->exams as $exams)
+                    {{$exams}}
                 @endforeach
                 <br><b>Provocações:</b>
-                @foreach($sintoma->provoked as $provoked)
-                {{$provoked}}
+                @foreach($suspect->provoked as $provoked)
+                    {{$provoked}}
                 @endforeach
                 <br><b>Sinais:</b>
-                @foreach($sintoma->signals as $signals)
-                {{$signals}}
+                @foreach($suspect->signals as $signals)
+                    {{$signals}}
                 @endforeach -->
-            </p>
-
+                </p>
+                <br>
 
             @endforeach
             <script type="text/javascript">
                 $('#itemName').select2({
-                    placeholder:'@if($sintomas[0]->name_suspect!=$sintoma->name_suspect){{" Buscar"}}@else{{$sintoma->name_suspect}}@endif',
+                    placeholder: '@if($suspects[0]->name_suspect!=$suspect->name_suspect){{" Buscar"}}@else{{$suspect->name_suspect}}@endif',
                     theme: "bootstrap-5",
                     language: $.extend({},
                         $.fn.select2.defaults.defaults.language, {
-                            noResults:()=> {
+                            noResults: () => {
                                 return $("<span></span>")
                             },
-                            searching:()=> {
+                            searching: () => {
                                 return $("<span></span>")
                             },
-                            errorLoading:()=> {
+                            errorLoading: () => {
                                 return $("<span></span>")
                             },
                         }),
@@ -157,11 +159,35 @@
                         }),
                         cache: true
                     },
-                });
-                // onload.window = $('#search-form').submit();
-                $('#itemName').change(function() {
-                    $('#search-form').submit();
-                });
+                }).change(()=> {$('#search-form').submit()})
+                // jQuery(document).ready(function() {
+                //     init();
+                // })
+                //
+                //
+                // function init() {
+                //     $('#select').select2({
+                //         width: "100%",
+                //         allowClear: false
+                //     }).on('select2:open', function(e) {
+                //         $('.select2-dropdown').hide();
+                //         setTimeout(function() {
+                //             jQuery('.select2-dropdown').slideDown(1000);
+                //         });
+                //     }).on('select2:closing', function(e) {
+                //         e.preventDefault();
+                //         setTimeout(function() {
+                //             jQuery('.select2-dropdown').slideUp(1000, function() {
+                //                 close();
+                //             });
+                //         }, 0);
+                //     });
+                // }
+                //
+                // function close() {
+                //     $("#select").select2('destroy');
+                //     init();
+                // }
             </script>
         </div>
     </div>

@@ -22,37 +22,46 @@
                 <div class="modal-body">
 
                     <form id="form-calendar" action="">
-                    {{--Chave de seguraça--}}
-                    {!! csrf_field() !!}
+                        {{--Chave de seguraça--}}
+                        {!! csrf_field() !!}
 
                         <div class="form-group d-none">
                             <label for="id">ID</label>
-                            <input class="form-control" type="text" name="id" id="id" placeholder="" aria-describedby="helpId">
+                            <input class="form-control" type="text" name="id" id="id" placeholder=""
+                                   aria-describedby="helpId">
                         </div>
 
                         <div class="form-group">
-                            <input type="radio" class="btn-check" name="title" id="free" autocomplete="off" value='LIVRE' onclick='updateColor("#00e600");'>
-                            <label class="btn btn-outline-success" for="free">Livre</label>
+                            @can('user')
+                            @else
+                                <input type="radio" class="btn-check" name="title" id="free" autocomplete="off"
+                                       value='LIVRE' onclick='updateColor("#00e600");'>
+                                <label class="btn btn-outline-success" for="free">Livre</label>
+                            @endcan
 
-                            <input type="radio" class="btn-check" name="title" id="marked" autocomplete="off" value='MARCADA' onclick='updateColor(" ");' checked>
+                            <input type="radio" class="btn-check" name="title" id="marked" autocomplete="off"
+                                   value='MARCADA' onclick='updateColor(" ");' checked>
                             <label class="btn btn-outline-primary" for="marked">Marcada</label>
                         </div>
                         <br>
 
                         <div class="form-group" id="divPatient">
                             <label for="patient">Paciente ID:</label>
-                            <input class="form-control shadow" name="patient" id="patient">
+                            <input class="form-control shadow" name="patient" id="patient"
+                                   @can('user') readonly @endcan
+                            >
                         </div>
 
                         <div class="form-group ">
                             <label for="observation">Observação</label>
-                            <textarea class="form-control shadow" name="observation" id="observation" rows="2"></textarea>
+                            <textarea class="form-control shadow" name="observation" id="observation"
+                                      rows="2"></textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="time">Horário Consulta</label>
-                            <input class="form-control" type="text" name="time" id="time" value="Sem hora marcada"
-                                   style="display: block;width: 100%;padding: 0.375rem 0;margin-bottom: 0;line-height: 1.5;color: #212529;background-color: transparent;border: solid transparent;border-width: 1px 0;">
+                            <input class="form-control shadow" name="time" id="time"
+                                   readonly>
                         </div>
 
                         <div class="form-group d-none">
@@ -70,18 +79,16 @@
                         <div class="form-group d-none">
                             <input class="form-control" type="text" name="display" id="display">
                         </div>
-
-                        <div class="form-group d-none">
-                            <input class="form-control" type="text" name="overlap" id="overlap" value=false>
-                        </div>
-
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="btnSave">Criar</button>
+                    @can('user')
+                    @else
+                        <button type="button" class="btn btn-success" id="btnSave">Criar</button>
+                    @endcan
                     <button type="button" class="btn btn-warning" id="btnChange">Alterar</button>
                     <button type="button" class="btn btn-danger" id="btnRemove">Remover</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
 
                 </div>
             </div>
@@ -89,3 +96,264 @@
     </div>
 
 </x-app-layout>
+
+<script>
+    // lembrate: configurar timeGridWeek para começar com o dia atual
+    // Bloquear acesso a consulta para o usuario
+    // Definir horário como disponível utilizando evento e com background
+    // Para isso, n posso criar um novo evento, e sim só alterar ele
+    // Criar um mini calendário com as consultas de hoje
+    // Cada consulta deve ser única naquele horario
+    // Tranferir toda regra do calendar.js para o Controller
+    // adiciinar legenda das cores
+    // corrigir o botao alterar
+
+
+    const d = new Date()
+    d.setHours(d.getHours() - 3)
+
+    // window.addEventListener('contextmenu', (event) => {
+    //     event.preventDefault()
+    // })
+
+    updateColor = (values) => {
+        document.getElementById('color').value = values
+        if (values === '#00e600') {
+            document.getElementById('divPatient').classList.add('d-none')
+            document.getElementById('display').value = 'background'
+        } else {
+            document.getElementById('divPatient').classList.remove('d-none')
+            document.getElementById('display').value = ' '
+            document.getElementById('patient').value = ' '
+
+        }
+
+    }
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        let form = document.querySelector('#form-calendar')
+
+        let calendarEl = document.getElementById('calendar')
+
+        let calendar = new FullCalendar.Calendar(calendarEl, {
+            themeSystem: 'bootstrap5',
+            initialView: 'timeGridFourDay',//'dayGridMonth',
+            locale: 'pt-BR',
+            timeZone: 'UTC',
+            headerToolbar: {
+                left: 'prev today next',
+                center: 'title',
+                right: 'dayGridMonth timeGridFourDay timeGridDay listMonth',
+            },
+            views: {
+                timeGrid: {
+                    eventMinHeight: 1,
+                    allDaySlot: false,
+
+                },
+                timeGridFourDay: {
+                    type: 'timeGrid',
+                    duration: {days: 7},
+                    buttonText: 'Semana'
+                }
+            },
+            nowIndicator: true,
+            now: d,
+            slotMinTime: '09:00:00',
+            slotMaxTime: '17:00:00',
+            slotDuration: '01:00:00',
+            slotLabelFormat: {
+                hour: '2-digit',
+                minute: '2-digit',
+                omitZeroMinute: false,
+                hour12: false
+            },
+            height: 500,
+            expandRows: true,
+            // events: rootUrl + '/calendario/show',
+            editable: true,
+            dayMaxEvents: true, // when too many events in a day, show the popover
+            eventSources: {
+                @can('user')
+                url: rootUrl + '/calendario/show/1',
+                @else
+                url: rootUrl + '/calendario/show',
+                @endcan
+                method: 'POST',
+                extraParams: {
+                    _token: form._token.value,
+                }
+            },
+
+            // eventDidMount:(info) => {
+            //     $(info.el).tooltip({
+            //         title:'Paciente: ' + info.event.extendedProps.patient,
+            //         placement: 'top',
+            //         trigger: 'hover',
+            //         container: 'body'
+            //     });
+            //
+            // },
+            @can('user')
+                @else
+            dateClick: (info) => {
+                if (info.view.type !== 'dayGridMonth') {
+                    // Reseta as informações do Modal
+                    form.reset();
+                    document.getElementById('divPatient').classList.remove('d-none')
+
+                    let time = new Date(info.dateStr.replace(/[^0-9,:-]/gi, ' '))
+                    form.time.value = time.toLocaleString()
+
+                    // Get data e hora atual e coloca no campo data
+                    form.start.value = info.dateStr.replace(/[^0-9,:-]/gi, ' ')
+                    form.end.value = info.dateStr.replace(/[^0-9,:-]/gi, ' ')
+
+
+                    $('#event').modal('show')
+                }
+
+            },
+            @endcan
+            eventOverlap: function (stillEvent, movingEvent) {
+                return stillEvent.allDay && movingEvent.allDay;
+            },
+            eventClick: (info) => {// adicionar if para abrir somente para alterar
+                @can('user')
+                if (info.event._def.ui.backgroundColor !== 'red') {
+                    axios.post(rootUrl + '/calendario/edit/' + info.event.id).then(
+                        // Se der certo, o modal será aberto com as informações do banco
+                        (res) => {
+                            // Recupero as informações do Controller e as insiro no form
+                            form.id.value = res.data.id
+
+                            form.title.value = 'MARCADA'
+                            form.patient.value = ' {{Auth::user()->name}}'
+
+                            form.observation.value = res.data.observation
+
+                            let time = new Date(info.event.startStr.replace(/[^0-9,:-]/gi, ' '))
+                            form.time.value = time.toLocaleString()
+
+                            form.start.value = res.data.start
+                            form.end.value = res.data.end
+
+                            console.log(time.toLocaleString())
+
+                            $('#event').modal('show')
+                        }).catch(
+                        // Caso um erro for encontrado será imprimido no console
+                        error => {
+                            if (error.response) {
+                                console.log(error.response.data)
+                            }
+                        }
+                    )
+                } else {
+                    console.log('bloqueado')
+                }
+                @else
+                axios.post(rootUrl + '/calendario/edit/' + info.event.id).then(
+                    // Se der certo, o modal será aberto com as informações do banco
+                    (res) => {
+                        // Recupero as informações do Controller e as insiro no form
+                        form.id.value = res.data.id
+
+                        form.title.value = 'MARCADA'
+                        form.patient.value = res.data.patient
+
+                        form.observation.value = res.data.observation
+
+                        let time = new Date(info.event.startStr.replace(/[^0-9,:-]/gi, ' '))
+                        form.time.value = time.toLocaleString()
+
+                        form.start.value = res.data.start
+                        form.end.value = res.data.end
+
+                        console.log(info)
+                        $('#event').modal('show')
+                    }).catch(
+                    // Caso um erro for encontrado será imprimido no console
+                    error => {
+                        if (error.response) {
+                            console.log(error.response.data)
+                        }
+                    }
+                )
+                @endcan
+            },
+            eventDrop: (info) => {
+                axios.post(rootUrl + '/calendario/edit/' + info.event.id).then(
+                    // Se der certo, o modal será aberto com as informações do banco
+                    (res) => {
+                        // Recupero as informações do Controller e as insiro no form
+                        form.id.value = res.data.id
+
+                        form.title.value = res.data.title
+                        form.patient.value = res.data.patient
+                        form.observation.value = res.data.observation
+
+                        let time = new Date(info.event.startStr.replace(/[^0-9,:-]/gi, ' '))
+                        form.time.value = time.toLocaleString()
+
+                        form.start.value = info.event.startStr.replace(/[^0-9,:-]/gi, ' ')
+                        form.end.value = form.start.value
+
+                        $('#event').modal('show')
+                    }).catch(
+                    // Caso um erro for encontrado será imprimido no console
+                    error => {
+                        if (error.response) {
+                            console.log(error.response.data)
+                        }
+                    }
+                )
+            }
+
+        });
+
+        calendar.render()
+
+        // calenUpdate =()=>{
+        //     calendar.refetchEvents()
+        //     console.log('refresh')
+        // }
+        // setInterval(calenUpdate,1000)
+
+
+        document.getElementById('btnSave').addEventListener('click', () => {
+            sendData('/calendario/store')
+        })
+
+        document.getElementById('btnRemove').addEventListener('click', () => {
+            sendData('/calendario/destroy/' + form.id.value)
+        })
+
+        document.getElementById('btnChange').addEventListener('click', () => {
+            sendData('/calendario/update/' + form.id.value)
+        })
+
+        sendData = (url) => {
+            const formData = new FormData(form)
+
+            // Axios envia informações via url
+            axios.post(rootUrl + url, formData).then(
+                // Se der certo, o modal será fechado e a informação enviada
+                (res) => {
+                    calendar.refetchEvents()
+                    $('#event').modal('hide')
+                }).catch(
+                // Caso um erro for encontrado será imprimido no console
+                error => {
+                    if (error.response) {
+                        console.log(error.response.data)
+                    }
+                }
+            )
+        }
+    })
+
+
+</script>
