@@ -1,26 +1,31 @@
 <x-app-layout>
     <br>
     <div class="container-sm shadow bg-white">
-        <table class="table table-hover">
-            <!-- @foreach($consults as $consult)
+        <table class="table table-hover align-middle">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Paciente</th>
                     <th>Exame</th>
-                    <th>Data e Hora</th>
+                    <th>Data</th>
+                    <th>Hora</th>
                     <th>Observação</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach($consults as $consult)
+                @if($consult->patient!="")
                 <tr>
                     <td>{{$consult->id}}</td>
-                    <td>@foreach($consult->patient as $patient) {{$patient}} @endforeach</td>
-                    <td>@foreach($consult->observation as $observation) {{$observation}} @endforeach</td>
-                    <td>@foreach($consult->start as $start) {{$start}} @endforeach</td>
+                    <td>{{$consult->patient}}</td>
+                    <td></td>
+                    <td>{{$consult->start}}</td>
+                    <td>{{$consult->end}}</td>
+                    <td>{{$consult->observation}}</td>
                 </tr>
+                @endif
+                @endforeach
             </tbody>
-            @endforeach -->
         </table>
     </div>
 </x-app-layout>
