@@ -159,11 +159,35 @@
                         }),
                         cache: true
                     },
-                });
-                // onload.window = $('#search-form').submit();
-                $('#itemName').change(function () {
-                    $('#search-form').submit();
-                });
+                }).change(()=> {$('#search-form').submit()})
+                // jQuery(document).ready(function() {
+                //     init();
+                // })
+                //
+                //
+                // function init() {
+                //     $('#select').select2({
+                //         width: "100%",
+                //         allowClear: false
+                //     }).on('select2:open', function(e) {
+                //         $('.select2-dropdown').hide();
+                //         setTimeout(function() {
+                //             jQuery('.select2-dropdown').slideDown(1000);
+                //         });
+                //     }).on('select2:closing', function(e) {
+                //         e.preventDefault();
+                //         setTimeout(function() {
+                //             jQuery('.select2-dropdown').slideUp(1000, function() {
+                //                 close();
+                //             });
+                //         }, 0);
+                //     });
+                // }
+                //
+                // function close() {
+                //     $("#select").select2('destroy');
+                //     init();
+                // }
             </script>
         </div>
     </div>
