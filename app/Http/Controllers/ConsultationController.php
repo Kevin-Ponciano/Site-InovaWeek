@@ -79,4 +79,10 @@ class ConsultationController extends Controller
 
         return response()->json($consultation);
     }
+
+    public function agenda(){
+        $consults = Consultation::all();
+        debug($consults);
+        return view('pages.scheduling', ['consults' => $consults]);
+    }
 }

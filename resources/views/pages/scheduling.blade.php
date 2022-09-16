@@ -1,6 +1,8 @@
 <x-app-layout>
-    <div class="container mt-5">
+    <br>
+    <div class="container-sm shadow bg-white">
         <table class="table table-hover">
+            <!-- @foreach($consults as $consult)
             <thead>
                 <tr>
                     <th>ID</th>
@@ -12,20 +14,13 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>1</td>
-                    <td>Gabryel Alcantara</td>
-                    <td>Canal</td>
-                    <td>14/09/2022</td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Kevin Ponciano</td>
-                    <td>Clareamento</td>
-                    <td>12/10/2022</td>
-                    <td>Muito Lindo</td>
+                    <td>{{$consult->id}}</td>
+                    <td>@foreach($consult->patient as $patient) {{$patient}} @endforeach</td>
+                    <td>@foreach($consult->observation as $observation) {{$observation}} @endforeach</td>
+                    <td>@foreach($consult->start as $start) {{$start}} @endforeach</td>
                 </tr>
             </tbody>
+            @endforeach -->
         </table>
     </div>
 </x-app-layout>

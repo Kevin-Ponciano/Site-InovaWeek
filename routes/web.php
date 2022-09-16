@@ -22,7 +22,7 @@ Route::middleware([
     Route::post('doencas', Doencas::class)->name('doencas');
 
     // Routes para Agendamentos
-    Route::get('/agenda', fn() => view('pages.scheduling'))->name('scheduling');
+    Route::get('/agenda', [ConsultationController::class, 'agenda'])->name('scheduling');
 
     // Routes da pagina calendario
     Route::get('/calendario', [ConsultationController::class, 'index'])->name('calendar');
