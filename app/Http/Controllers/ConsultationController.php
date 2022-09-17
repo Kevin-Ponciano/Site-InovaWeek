@@ -42,9 +42,9 @@ class ConsultationController extends Controller
     public function showUser($name, Consultation $consultation)
     {
         $consultation = Consultation::all();
-
+        debug($name);
         foreach ($consultation as $consult) {
-            if ($consult->id != $name && $consult->patient != null) {
+            if ($consult->patient != $name && $consult->patient != null) {
                 $consult->display = 'background';
                 $consult->color = 'red';
             } else {
@@ -89,7 +89,6 @@ class ConsultationController extends Controller
     public function agenda()
     {
         $consults = Consultation::all();
-        debug($consults);
 
         foreach ($consults as $consult) {
             $consult->start = Carbon::createFromFormat("Y-m-d H:i:s", $consult->start)->format("d/m/Y");

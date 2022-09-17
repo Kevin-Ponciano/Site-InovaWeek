@@ -11,7 +11,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/', fn() => view('pages.dashboard'))->name('dashboard');
+    //Route::get('/', fn() => view('pages.dashboard'))->name('dashboard');
     Route::get('/dashboard', fn() => view('pages.dashboard'))->name('dashboard');
 
     // Routes para realizar a pesquisa

@@ -173,12 +173,14 @@
             },
             height: 500,
             expandRows: true,
-            // events: rootUrl + '/calendario/show',
+            @can('user')
+                @else
             editable: true,
-            dayMaxEvents: true, // when too many events in a day, show the popover
+            @endcan
+            dayMaxEvents: true,
             eventSources: {
                 @can('user')
-                url: rootUrl + "/calendario/show",
+                url: rootUrl + "/calendario/show/{{Auth::user()->name}}",
                 @else
                 url: rootUrl + '/calendario/show',
                 @endcan
@@ -324,6 +326,12 @@
         // setInterval(calenUpdate,1000)
 
 
+        @can('user')
+        document.getElementById('btnChange').addEventListener('click', () => {
+            sendData('/calendario/update/' + form.id.value)
+        })
+
+        @else
         document.getElementById('btnSave').addEventListener('click', () => {
             sendData('/calendario/store')
         })
@@ -331,10 +339,7 @@
         document.getElementById('btnRemove').addEventListener('click', () => {
             sendData('/calendario/destroy/' + form.id.value)
         })
-
-        document.getElementById('btnChange').addEventListener('click', () => {
-            sendData('/calendario/update/' + form.id.value)
-        })
+        @endcan
 
         sendData = (url) => {
             const formData = new FormData(form)
@@ -355,6 +360,4 @@
             )
         }
     })
-
-    console.log()
 </script>

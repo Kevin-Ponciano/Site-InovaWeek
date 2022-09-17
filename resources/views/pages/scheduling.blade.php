@@ -14,7 +14,8 @@
             </thead>
             <tbody>
             @foreach($consults as $consult)
-                @if($consult->patient!="")
+                @can('user')
+                @if($consult->patient==Auth::user()->name)
                     <tr>
                         <td>{{$consult->id}}</td>
                         <td>{{$consult->patient}}</td>
@@ -24,6 +25,18 @@
                         <td>{{$consult->observation}}</td>
                     </tr>
                 @endif
+                @elsecan('admin')
+                    @if($consult->patient!='')
+                    <tr>
+                        <td>{{$consult->id}}</td>
+                        <td>{{$consult->patient}}</td>
+                        <td></td>
+                        <td>{{$consult->start}}</td>
+                        <td>{{$consult->end}}</td>
+                        <td>{{$consult->observation}}</td>
+                    </tr>
+                    @endif
+                @endcan
             @endforeach
             </tbody>
         </table>
