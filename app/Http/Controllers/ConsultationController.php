@@ -28,6 +28,7 @@ class ConsultationController extends Controller
             $a['title'] = null;
         } else {
             $a['title'] = $a['patient'];
+            $a['color'] = '#00bed8';
         }
         $consultation = Consultation::create($a);
     }
@@ -72,6 +73,7 @@ class ConsultationController extends Controller
             $a['title'] = null;
         } else {
             $a['title'] = $a['patient'];
+            $a['color'] = '#00bed8';
         }
         $consultation->update($a);
         debug($a);

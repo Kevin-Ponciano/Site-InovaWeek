@@ -2,8 +2,8 @@
 .tooltip {
     position: absolute;
     z-index: 9999;
-    background: rgba(94, 157, 251, .9);
-    color: rgba(94, 157, 251, .4);
+    background: #00bed8;
+    color: #00bed8;
     width: 150px;
     border-radius: 3px;
     box-shadow: 0 0 2px white;
@@ -17,18 +17,21 @@
 .fc .fc-daygrid-day.fc-day-today {
     background-color: rgba(94, 157, 251,.4);
     background-color: var(--fc-today-bg-color,rgba(94, 157, 251,.4));
+    font-weight: bold
 }
 .fc .fc-timegrid-col.fc-day-today {
     background-color: rgba(94, 157, 251,.4);
     background-color: var(--fc-today-bg-color,rgba(94, 157, 251,.1));
+    font-weight: bold
 }
 .fc .fc-timegrid-now-indicator-arrow {
     position: absolute;
     z-index: 4;
     margin-top: -5px;
     border-style: solid;
-    border-color: blue;
-    border-color: var(--fc-now-indicator-color,blue);
+    border-color: #00bed8;
+    border-color: var(--fc-now-indicator-color,#00bed8);
+    font-weight: bold;
 }
 
 .fc-direction-ltr .fc-timegrid-now-indicator-arrow {
@@ -41,13 +44,16 @@
 .fc .fc-timegrid-now-indicator-line {
     border-color: rgba(94, 157, 251,.4);
     border-color: var(--fc-now-indicator-color,rgba(94, 157, 251,.4));
+    font-weight: bold
 
 }
 .fc .fc-bg-event .fc-event-title{
     color:green;
+    font-weight: bold
 }
 .fc .fc-bg-event .fc-event-title {
     color: transparent;
+    font-weight: bold
 }
 /*
 i wish this required CSS was better documented :(

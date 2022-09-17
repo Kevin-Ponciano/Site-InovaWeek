@@ -8,8 +8,18 @@
         />
         <title>Odonto On</title>
     </head>
-
-    <body>
+    <style>
+        .bg-blue-600{
+            background-color: #00bed8;
+        }
+        .border-blue-700{
+            border-color: #00bed8;
+        }
+        .border-blue-600{
+            border-color: #00bed8;
+        }
+    </style>
+    <body class="bg-indigo-500">
     <header class="relative w-full px-8 text-gray-700 bg-white body-font">
         <div class="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl">
             <img class="relative z-10 flex items-center w-14 py-2"
@@ -30,7 +40,7 @@
             text-white
             whitespace-no-wrap
             bg-blue-600
-            border border-blue-700
+            border-blue-700
             rounded-md
             shadow-sm
             hover:bg-blue-700
@@ -38,8 +48,7 @@
             focus:ring-2
             focus:ring-offset-2
             focus:ring-blue-500
-          "
-        >
+          ">
           Cadastro
         </a>
       </span>
@@ -71,7 +80,7 @@
             >
 			<span class="block">
 				Aumente o seu nível
-				<span class="block mt-1 text-blue-500 lg:inline lg:mt-0">
+				<span class="block mt-1 lg:inline lg:mt-0" style="color: #00bed8">
 					Prática Dental
 				</span>
 			</span>
@@ -107,7 +116,7 @@
 					md:mb-0
 					hover:bg-blue-700
 					md:w-auto
-				"
+				" style="background-color:#00bed8"
                 >
                     Comece — grátis
                     <svg
@@ -239,7 +248,7 @@
 							text-white
 							bg-blue-600
 							rounded-full
-						"
+						" style="background-color: #00bed8"
                     ><span class="text-sm font-bold">✓</span></span
                     >
                         Um único ponto de referência

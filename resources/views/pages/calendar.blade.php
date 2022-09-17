@@ -17,7 +17,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Consulta</h5>
+                    <h5 class="modal-title" style="color:#00bed8;font-size: x-large"><b>Marcação de Consulta</b></h5>
                 </div>
                 <div class="modal-body">
 
@@ -31,37 +31,36 @@
                                    aria-describedby="helpId">
                         </div>
 
-                        <div class="form-group">
-                            @can('user')
-                            @else
-                                <input type="radio" class="btn-check" name="title" id="free" autocomplete="off"
-                                       value='LIVRE' onclick='updateColor("#00e600");'>
-                                <label class="btn btn-outline-success" for="free">Livre</label>
-                            @endcan
+
+                        <div class="form-group @can('user') d-none @endcan">
+
+                            <input type="radio" class="btn-check" name="title" id="free" autocomplete="off"
+                                   value='LIVRE' onclick='updateColor("#00e600");'>
+                            <label class="btn btn-outline-success" for="free">Livre</label>
 
                             <input type="radio" class="btn-check" name="title" id="marked" autocomplete="off"
                                    value='MARCADA' onclick='updateColor(" ");' checked>
                             <label class="btn btn-outline-primary" for="marked">Marcada</label>
                         </div>
+
+                        <div class="form-floating" id="divPatient">
+                            <input class="form-control shadow" name="patient" id="patient"
+                                   @can('user') readonly @endcan>
+                            <label for="patient">Paciente ID:</label>
+                        </div>
                         <br>
 
-                        <div class="form-group" id="divPatient">
-                            <label for="patient">Paciente ID:</label>
-                            <input class="form-control shadow" name="patient" id="patient"
-                                   @can('user') readonly @endcan
-                            >
-                        </div>
-
-                        <div class="form-group ">
-                            <label for="observation">Observação</label>
+                        <div class="form-floating">
                             <textarea class="form-control shadow" name="observation" id="observation"
                                       rows="2"></textarea>
+                            <label for="observation">Observação</label>
                         </div>
+                        <br>
 
-                        <div class="form-group">
-                            <label for="time">Horário Consulta</label>
+                        <div class="form-floating">
                             <input class="form-control shadow" name="time" id="time"
                                    readonly>
+                            <label for="time">Horário Consulta</label>
                         </div>
 
                         <div class="form-group d-none">
@@ -126,6 +125,7 @@
             document.getElementById('divPatient').classList.remove('d-none')
             document.getElementById('display').value = ' '
             document.getElementById('patient').value = ' '
+
 
         }
 
@@ -242,8 +242,6 @@
                             form.start.value = res.data.start
                             form.end.value = res.data.end
 
-                            console.log(res)
-                            console.log(form)
                             $('#event').modal('show')
                         }).catch(
                         // Caso um erro for encontrado será imprimido no console
@@ -341,7 +339,7 @@
         })
         @endcan
 
-        sendData = (url) => {
+            sendData = (url) => {
             const formData = new FormData(form)
 
             // Axios envia informações via url
