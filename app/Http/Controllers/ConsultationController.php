@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Consultation;
 use Illuminate\Http\Request;
-use function Illuminate\Events\queueable;
 
 class ConsultationController extends Controller
 {
@@ -24,13 +23,12 @@ class ConsultationController extends Controller
         request()->validate(Consultation::$rules);
 
 
-
-        if($a['title'] =='LIVRE'){
+        if ($a['title'] == 'LIVRE') {
             $a['title'] = null;
-        }else{
+        } else {
             $a['title'] = $a['patient'];
         }
-        $consultation=Consultation::create($a);
+        $consultation = Consultation::create($a);
     }
 
     public function show(Consultation $consultation)
@@ -40,16 +38,15 @@ class ConsultationController extends Controller
         return response()->json($consultation);
     }
 
-    public function showUser($id, Consultation $consultation)
+    public function showUser($name, Consultation $consultation)
     {
         $consultation = Consultation::all();
 
-        foreach ($consultation as $consult)
-        {
-            if($consult->id != $id && $consult->patient != null){
+        foreach ($consultation as $consult) {
+            if ($consult->id != $name && $consult->patient != null) {
                 $consult->display = 'background';
                 $consult->color = 'red';
-            }else{
+            } else {
                 $consult->title = 'Minha Consuta';
             }
         }
@@ -68,7 +65,15 @@ class ConsultationController extends Controller
     public function update(Request $request, Consultation $consultation)
     {
         request()->validate(Consultation::$rules);
-        $consultation->update($request->all());
+
+        $a = $request->all();
+        if ($a['title'] == 'LIVRE') {
+            $a['title'] = null;
+        } else {
+            $a['title'] = $a['patient'];
+        }
+        $consultation->update($a);
+        debug($a);
 
         return response()->json($consultation);
     }
@@ -78,5 +83,11 @@ class ConsultationController extends Controller
         $consultation = Consultation::find($id)->delete();
 
         return response()->json($consultation);
+    }
+
+    public function agenda(){
+        $consults = Consultation::all();
+        debug($consults);
+        return view('pages.scheduling', ['consults' => $consults]);
     }
 }

@@ -4,7 +4,7 @@
     {{--            Calendário--}}
     {{--        </h2>--}}
     {{--    </x-slot>--}}
-    {{-- DIV utilizando Bootstrap 4  --}}
+
     <br>
     <div class="container-sm shadow bg-white">
         <br>
@@ -83,11 +83,12 @@
                 </div>
                 <div class="modal-footer">
                     @can('user')
+                        <button type="button" class="btn btn-primary" id="btnChange">Marcar</button>
                     @else
                         <button type="button" class="btn btn-success" id="btnSave">Criar</button>
+                        <button type="button" class="btn btn-warning" id="btnChange">Alterar</button>
+                        <button type="button" class="btn btn-danger" id="btnRemove">Remover</button>
                     @endcan
-                    <button type="button" class="btn btn-warning" id="btnChange">Alterar</button>
-                    <button type="button" class="btn btn-danger" id="btnRemove">Remover</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
 
                 </div>
@@ -177,7 +178,7 @@
             dayMaxEvents: true, // when too many events in a day, show the popover
             eventSources: {
                 @can('user')
-                url: rootUrl + '/calendario/show/1',
+                url: rootUrl + "/calendario/show",
                 @else
                 url: rootUrl + '/calendario/show',
                 @endcan
@@ -229,8 +230,7 @@
                             // Recupero as informações do Controller e as insiro no form
                             form.id.value = res.data.id
 
-                            form.title.value = 'MARCADA'
-                            form.patient.value = ' {{Auth::user()->name}}'
+                            form.patient.value = '{{Auth::user()->name}}'
 
                             form.observation.value = res.data.observation
 
@@ -240,8 +240,8 @@
                             form.start.value = res.data.start
                             form.end.value = res.data.end
 
-                            console.log(time.toLocaleString())
-
+                            console.log(res)
+                            console.log(form)
                             $('#event').modal('show')
                         }).catch(
                         // Caso um erro for encontrado será imprimido no console
@@ -272,7 +272,8 @@
                         form.start.value = res.data.start
                         form.end.value = res.data.end
 
-                        console.log(info)
+                        console.log(res)
+                        console.log(form)
                         $('#event').modal('show')
                     }).catch(
                     // Caso um erro for encontrado será imprimido no console
@@ -355,5 +356,5 @@
         }
     })
 
-
+    console.log()
 </script>
