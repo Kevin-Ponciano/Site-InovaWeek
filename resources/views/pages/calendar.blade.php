@@ -40,8 +40,9 @@
 
                             <input type="radio" class="btn-check" name="title" id="marked" autocomplete="off"
                                    value='MARCADA' onclick='updateColor(" ");' checked>
-                            <label class="btn btn-outline-primary" for="marked">Marcada</label>
+                            <label class="btn btn-outline-primary" for="marked">Criando</label>
                         </div>
+                        <br id="br1">
 
                         <div class="form-floating" id="divPatient">
                             <input class="form-control shadow" name="patient" id="patient"
@@ -84,8 +85,8 @@
                     @can('user')
                         <button type="button" class="btn btn-primary" id="btnChange">Marcar</button>
                     @else
-                        <button type="button" class="btn btn-success" id="btnSave">Criar</button>
-                        <button type="button" class="btn btn-warning" id="btnChange">Alterar</button>
+                        <button type="button" class="btn btn-primary" id="btnSave">Marcar</button>
+                        <button type="button" class="btn btn-primary" id="btnChange">Alterar</button>
                         <button type="button" class="btn btn-danger" id="btnRemove">Remover</button>
                     @endcan
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
@@ -120,13 +121,13 @@
         document.getElementById('color').value = values
         if (values === '#00e600') {
             document.getElementById('divPatient').classList.add('d-none')
+            document.getElementById('br1').classList.add('d-none')
             document.getElementById('display').value = 'background'
         } else {
             document.getElementById('divPatient').classList.remove('d-none')
+            document.getElementById('br1').classList.remove('d-none')
             document.getElementById('display').value = ' '
             document.getElementById('patient').value = ' '
-
-
         }
 
     }
@@ -259,6 +260,8 @@
                     // Se der certo, o modal será aberto com as informações do banco
                     (res) => {
                         // Recupero as informações do Controller e as insiro no form
+                        document.getElementById('btnSave').classList.add('d-none')
+
                         form.id.value = res.data.id
 
                         form.title.value = 'MARCADA'
@@ -272,8 +275,6 @@
                         form.start.value = res.data.start
                         form.end.value = res.data.end
 
-                        console.log(res)
-                        console.log(form)
                         $('#event').modal('show')
                     }).catch(
                     // Caso um erro for encontrado será imprimido no console
@@ -323,12 +324,10 @@
         // }
         // setInterval(calenUpdate,1000)
 
-
-        @can('user')
         document.getElementById('btnChange').addEventListener('click', () => {
             sendData('/calendario/update/' + form.id.value)
         })
-
+        @can('user')
         @else
         document.getElementById('btnSave').addEventListener('click', () => {
             sendData('/calendario/store')

@@ -43,7 +43,7 @@ class ConsultationController extends Controller
     public function showUser($name, Consultation $consultation)
     {
         $consultation = Consultation::all();
-        debug($name);
+
         foreach ($consultation as $consult) {
             if ($consult->patient != $name && $consult->patient != null) {
                 $consult->display = 'background';
@@ -76,7 +76,7 @@ class ConsultationController extends Controller
             $a['color'] = '#00bed8';
         }
         $consultation->update($a);
-        debug($a);
+
 
         return response()->json($consultation);
     }
