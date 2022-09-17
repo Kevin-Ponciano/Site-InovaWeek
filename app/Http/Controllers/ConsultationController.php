@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Consultation;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ConsultationController extends Controller
@@ -85,9 +86,15 @@ class ConsultationController extends Controller
         return response()->json($consultation);
     }
 
-    public function agenda(){
+    public function agenda()
+    {
         $consults = Consultation::all();
         debug($consults);
+
+        foreach ($consults as $consult) {
+            $consult->start = Carbon::createFromFormat("Y-m-d H:i:s", $consult->start)->format("d/m/Y");
+            $consult->end = Carbon::createFromFormat("Y-m-d H:i:s", $consult->end)->format("H:i");
+        }
         return view('pages.scheduling', ['consults' => $consults]);
     }
 }
