@@ -1192,7 +1192,7 @@
                     </p>
                 </div>
                 <a
-                    href="https://my.odonto.me/signup"
+                    href="{{route('register')}}"
                     class="
 					inline-flex
 					items-center

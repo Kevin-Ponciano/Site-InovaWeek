@@ -260,7 +260,7 @@
                     // Se der certo, o modal será aberto com as informações do banco
                     (res) => {
                         // Recupero as informações do Controller e as insiro no form
-                        document.getElementById('btnSave').classList.add('d-none')
+
 
                         form.id.value = res.data.id
 
@@ -275,6 +275,7 @@
                         form.start.value = res.data.start
                         form.end.value = res.data.end
 
+                        console.log(form.id.value+ ' '+ res.data.id)
                         $('#event').modal('show')
                     }).catch(
                     // Caso um erro for encontrado será imprimido no console

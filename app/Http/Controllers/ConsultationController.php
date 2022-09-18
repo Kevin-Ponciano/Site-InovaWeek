@@ -21,6 +21,8 @@ class ConsultationController extends Controller
     public function store(Request $request)
     {
         $a = $request->all();
+        $b = Consultation::find($a['id']);
+
         request()->validate(Consultation::$rules);
 
 

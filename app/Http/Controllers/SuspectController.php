@@ -9,7 +9,6 @@ class SuspectController extends Controller
 {
     public function index(){
         $search = request('search');
-
         if($search) {
             $suspects = Suspect::where([
                 ['name_suspect',
@@ -17,10 +16,13 @@ class SuspectController extends Controller
                     '%'.$search.'%']
             ])->get();
         }else{
-            $suspects = Suspect::all();
+            $suspects = Suspect::all()->sortBy('name_suspect');
+
+            return view('pages.search',['suspects'=> $suspects]);
         }
-        return view('pages.search',['suspects'=> $suspects,'search'=> $search]);
+        return view('pages.suspect',['suspects'=> $suspects,'search'=> $search]);
     }
+
 
     public function dataAjax(Request $request)
     {
