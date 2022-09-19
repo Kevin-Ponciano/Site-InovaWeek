@@ -10,11 +10,7 @@ class SuspectController extends Controller
     public function index(){
         $search = request('search');
         if($search) {
-            $suspects = Suspect::where([
-                ['name_suspect',
-                    'like',
-                    '%'.$search.'%']
-            ])->get();
+            $suspects = Suspect::where([['name_suspect','like','%'.$search.'%']])->get();
         }else{
             $suspects = Suspect::all()->sortBy('name_suspect');
 
@@ -30,7 +26,7 @@ class SuspectController extends Controller
 
         if($request->has('q')){
             $search = $request->q;
-            $data =Suspect::select("id","name_suspect")
+            $data = Suspect::select("id","name_suspect")
                 ->where('name_suspect','LIKE','%'.$search.'%')
                 ->get();
         }

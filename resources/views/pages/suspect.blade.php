@@ -6,7 +6,7 @@
                 <div class="grid grid-cols-3 gap-8">
                     <div class="flex justify-center">
                         <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
-                            <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Diagnóstico
+                            <h5 class="text-gray-900 text-lg leading-tight font-medium mb-2">Diagnóstico
                                 Diferencial</h5>
                             <p class="text-gray-700 text-base mb-4 font-medium">
                                 @foreach($suspect->differential_diagnosis as $differential_diagnosis)
@@ -18,7 +18,7 @@
 
                     <div class="flex justify-center">
                         <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
-                            <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Sintomas</h5>
+                            <h5 class="text-gray-900 text-lg leading-tight font-medium mb-2">Sintomas</h5>
                             <p class="text-gray-700 text-base mb-4 font-medium">
                                 @foreach($suspect->symptoms as $symptoms)
                                     <br>- {{$symptoms}}
@@ -29,7 +29,7 @@
 
                     <div class="flex justify-center">
                         <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
-                            <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Tratamento</h5>
+                            <h5 class="text-gray-900 text-lg leading-tight font-medium mb-2">Tratamento</h5>
                             <p class="text-gray-700 text-base mb-4 font-medium">
                                 @foreach($suspect->treatment as $treatment)
                                     <br>- {{$treatment}}
@@ -40,7 +40,7 @@
 
                     <div class="flex justify-center">
                         <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
-                            <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Exames</h5>
+                            <h5 class="text-gray-900 text-lg leading-tight font-medium mb-2">Exames</h5>
                             <p class="text-gray-700 text-base mb-4 font-medium">
                                 @foreach($suspect->exams as $exams)
                                     <br>- {{$exams}}
@@ -51,7 +51,7 @@
 
                     <div class="flex justify-center">
                         <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
-                            <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Causas</h5>
+                            <h5 class="text-gray-900 text-lg leading-tight font-medium mb-2">Causas</h5>
                             <p class="text-gray-700 text-base mb-4 font-medium">
                                 @foreach($suspect->provoked as $provoked)
                                     <br>- {{$provoked}}
@@ -62,7 +62,7 @@
 
                     <div class="flex justify-center">
                         <div class="block p-6 rounded-lg shadow-lg bg-white w-full h-full">
-                            <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">Sinais</h5>
+                            <h5 class="text-gray-900 leading-tight font-medium mb-2">Sinais</h5>
                             <p class="text-gray-700 text-base mb-4 font-medium">
                                 @foreach($suspect->signals as $signals)
                                     <br>- {{$signals}}

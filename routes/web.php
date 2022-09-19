@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\SuspectController;
+use App\Http\Controllers\UserController;
 use App\Http\Livewire\Doencas;
 use Illuminate\Support\Facades\Route;
 
@@ -10,9 +11,11 @@ Route::middleware([
     'auth:web',
     config('jetstream.auth_session'),
     'verified'
-])->group(function () {
-    //Route::get('/', fn() => view('pages.dashboard'))->name('dashboard');
-    Route::get('/dashboard', fn() => view('pages.dashboard'))->name('dashboard');
+])->group(callback: function () {
+    // Route::get('/', fn() => view('pages.dashboard'))->name('dashboard');
+    // Route::get('/dashboard', fn() => view('pages.dashboard'))->name('dashboard');
+
+    Route::get('/dashboard',[UserController::class,'index'])->name('dashboard');
 
     // Routes para realizar a pesquisa
     Route::get('/buscar', [SuspectController::class, 'index'])->name('buscar');
