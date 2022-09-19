@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\SuspectController;
+use App\Http\Controllers\UserController;
 use App\Http\Livewire\Doencas;
 use Illuminate\Support\Facades\Route;
 
@@ -10,9 +11,11 @@ Route::middleware([
     'auth:web',
     config('jetstream.auth_session'),
     'verified'
-])->group(function () {
-    Route::get('/', fn() => view('pages.dashboard'))->name('dashboard');
-    Route::get('/dashboard', fn() => view('pages.dashboard'))->name('dashboard');
+])->group(callback: function () {
+    // Route::get('/', fn() => view('pages.dashboard'))->name('dashboard');
+    // Route::get('/dashboard', fn() => view('pages.dashboard'))->name('dashboard');
+
+    Route::get('/dashboard',[UserController::class,'index'])->name('dashboard');
 
     // Routes para realizar a pesquisa
     Route::get('/buscar', [SuspectController::class, 'index'])->name('buscar');
@@ -29,7 +32,7 @@ Route::middleware([
     Route::post('/calendario/store', [ConsultationController::class, 'store']);
 
     Route::post('/calendario/show', [ConsultationController::class, 'show']);
-    Route::post('/calendario/show/{id}', [ConsultationController::class, 'showUser']);
+    Route::post('/calendario/show/{name}', [ConsultationController::class, 'showUser']);
     // route edit e update para atualizar um evento
     Route::post('/calendario/edit/{id}', [ConsultationController::class, 'edit']);
     Route::post('/calendario/update/{consultation}', [ConsultationController::class, 'update']);

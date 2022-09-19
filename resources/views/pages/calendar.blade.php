@@ -4,7 +4,7 @@
     {{--            Calendário--}}
     {{--        </h2>--}}
     {{--    </x-slot>--}}
-    {{-- DIV utilizando Bootstrap 4  --}}
+
     <br>
     <div class="container-sm shadow bg-white">
         <br>
@@ -17,7 +17,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Consulta</h5>
+                    <h5 class="modal-title" style="color:#00bed8;font-size: x-large"><b>Marcação de Consulta</b></h5>
                 </div>
                 <div class="modal-body">
 
@@ -31,37 +31,37 @@
                                    aria-describedby="helpId">
                         </div>
 
-                        <div class="form-group">
-                            @can('user')
-                            @else
-                                <input type="radio" class="btn-check" name="title" id="free" autocomplete="off"
-                                       value='LIVRE' onclick='updateColor("#00e600");'>
-                                <label class="btn btn-outline-success" for="free">Livre</label>
-                            @endcan
+
+                        <div class="form-group @can('user') d-none @endcan">
+
+                            <input type="radio" class="btn-check" name="title" id="free" autocomplete="off"
+                                   value='LIVRE' onclick='updateColor("#00e600");'>
+                            <label class="btn btn-outline-success" for="free">Livre</label>
 
                             <input type="radio" class="btn-check" name="title" id="marked" autocomplete="off"
                                    value='MARCADA' onclick='updateColor(" ");' checked>
-                            <label class="btn btn-outline-primary" for="marked">Marcada</label>
+                            <label class="btn btn-outline-primary" for="marked">Criando</label>
+                        </div>
+                        <br id="br1">
+
+                        <div class="form-floating" id="divPatient">
+                            <input class="form-control shadow" name="patient" id="patient"
+                                   @can('user') readonly @endcan>
+                            <label for="patient">Paciente ID:</label>
                         </div>
                         <br>
 
-                        <div class="form-group" id="divPatient">
-                            <label for="patient">Paciente ID:</label>
-                            <input class="form-control shadow" name="patient" id="patient"
-                                   @can('user') readonly @endcan
-                            >
-                        </div>
-
-                        <div class="form-group ">
-                            <label for="observation">Observação</label>
+                        <div class="form-floating">
                             <textarea class="form-control shadow" name="observation" id="observation"
                                       rows="2"></textarea>
+                            <label for="observation">Observação</label>
                         </div>
+                        <br>
 
-                        <div class="form-group">
-                            <label for="time">Horário Consulta</label>
+                        <div class="form-floating">
                             <input class="form-control shadow" name="time" id="time"
                                    readonly>
+                            <label for="time">Horário Consulta</label>
                         </div>
 
                         <div class="form-group d-none">
@@ -83,11 +83,12 @@
                 </div>
                 <div class="modal-footer">
                     @can('user')
+                        <button type="button" class="btn btn-primary" id="btnChange">Marcar</button>
                     @else
-                        <button type="button" class="btn btn-success" id="btnSave">Criar</button>
+                        <button type="button" class="btn btn-primary" id="btnSave">Marcar</button>
+                        <button type="button" class="btn btn-primary" id="btnChange">Alterar</button>
+                        <button type="button" class="btn btn-danger" id="btnRemove">Remover</button>
                     @endcan
-                    <button type="button" class="btn btn-warning" id="btnChange">Alterar</button>
-                    <button type="button" class="btn btn-danger" id="btnRemove">Remover</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
 
                 </div>
@@ -120,12 +121,13 @@
         document.getElementById('color').value = values
         if (values === '#00e600') {
             document.getElementById('divPatient').classList.add('d-none')
+            document.getElementById('br1').classList.add('d-none')
             document.getElementById('display').value = 'background'
         } else {
             document.getElementById('divPatient').classList.remove('d-none')
+            document.getElementById('br1').classList.remove('d-none')
             document.getElementById('display').value = ' '
             document.getElementById('patient').value = ' '
-
         }
 
     }
@@ -172,12 +174,14 @@
             },
             height: 500,
             expandRows: true,
-            // events: rootUrl + '/calendario/show',
+            @can('user')
+                @else
             editable: true,
-            dayMaxEvents: true, // when too many events in a day, show the popover
+            @endcan
+            dayMaxEvents: true,
             eventSources: {
                 @can('user')
-                url: rootUrl + '/calendario/show/1',
+                url: rootUrl + "/calendario/show/{{Auth::user()->name}}",
                 @else
                 url: rootUrl + '/calendario/show',
                 @endcan
@@ -229,8 +233,7 @@
                             // Recupero as informações do Controller e as insiro no form
                             form.id.value = res.data.id
 
-                            form.title.value = 'MARCADA'
-                            form.patient.value = ' {{Auth::user()->name}}'
+                            form.patient.value = '{{Auth::user()->name}}'
 
                             form.observation.value = res.data.observation
 
@@ -239,8 +242,6 @@
 
                             form.start.value = res.data.start
                             form.end.value = res.data.end
-
-                            console.log(time.toLocaleString())
 
                             $('#event').modal('show')
                         }).catch(
@@ -259,6 +260,8 @@
                     // Se der certo, o modal será aberto com as informações do banco
                     (res) => {
                         // Recupero as informações do Controller e as insiro no form
+
+
                         form.id.value = res.data.id
 
                         form.title.value = 'MARCADA'
@@ -272,7 +275,7 @@
                         form.start.value = res.data.start
                         form.end.value = res.data.end
 
-                        console.log(info)
+                        console.log(form.id.value+ ' '+ res.data.id)
                         $('#event').modal('show')
                     }).catch(
                     // Caso um erro for encontrado será imprimido no console
@@ -322,7 +325,11 @@
         // }
         // setInterval(calenUpdate,1000)
 
-
+        document.getElementById('btnChange').addEventListener('click', () => {
+            sendData('/calendario/update/' + form.id.value)
+        })
+        @can('user')
+        @else
         document.getElementById('btnSave').addEventListener('click', () => {
             sendData('/calendario/store')
         })
@@ -330,12 +337,9 @@
         document.getElementById('btnRemove').addEventListener('click', () => {
             sendData('/calendario/destroy/' + form.id.value)
         })
+        @endcan
 
-        document.getElementById('btnChange').addEventListener('click', () => {
-            sendData('/calendario/update/' + form.id.value)
-        })
-
-        sendData = (url) => {
+            sendData = (url) => {
             const formData = new FormData(form)
 
             // Axios envia informações via url
@@ -354,6 +358,4 @@
             )
         }
     })
-
-
 </script>

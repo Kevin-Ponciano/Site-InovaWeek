@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Consultation;
-use Illuminate\Http\Request;
 use Carbon\Carbon;
-
-use function Illuminate\Events\queueable;
+use Illuminate\Http\Request;
 
 class ConsultationController extends Controller
 {
@@ -23,14 +21,16 @@ class ConsultationController extends Controller
     public function store(Request $request)
     {
         $a = $request->all();
-        request()->validate(Consultation::$rules);
+        $b = Consultation::find($a['id']);
 
+        request()->validate(Consultation::$rules);
 
 
         if ($a['title'] == 'LIVRE') {
             $a['title'] = null;
         } else {
             $a['title'] = $a['patient'];
+            $a['color'] = '#00bed8';
         }
         $consultation = Consultation::create($a);
     }
@@ -42,12 +42,12 @@ class ConsultationController extends Controller
         return response()->json($consultation);
     }
 
-    public function showUser($id, Consultation $consultation)
+    public function showUser($name, Consultation $consultation)
     {
         $consultation = Consultation::all();
 
         foreach ($consultation as $consult) {
-            if ($consult->id != $id && $consult->patient != null) {
+            if ($consult->patient != $name && $consult->patient != null) {
                 $consult->display = 'background';
                 $consult->color = 'red';
             } else {
@@ -69,7 +69,16 @@ class ConsultationController extends Controller
     public function update(Request $request, Consultation $consultation)
     {
         request()->validate(Consultation::$rules);
-        $consultation->update($request->all());
+
+        $a = $request->all();
+        if ($a['title'] == 'LIVRE') {
+            $a['title'] = null;
+        } else {
+            $a['title'] = $a['patient'];
+            $a['color'] = '#00bed8';
+        }
+        $consultation->update($a);
+
 
         return response()->json($consultation);
     }

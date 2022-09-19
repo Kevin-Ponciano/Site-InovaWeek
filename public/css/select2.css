@@ -80,6 +80,8 @@
 
 .select2-results {
     display: block;
+    overflow-y: auto;
+    height: 200px;
 }
 
 .select2-results__options {

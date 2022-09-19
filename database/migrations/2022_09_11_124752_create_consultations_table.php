@@ -18,7 +18,7 @@ return new class extends Migration
 
             // Criar chave estrangeira para paciente
             $table->string('title')->nullable(); //title = Status
-            $table->string('patient')->nullable();// Configurar relacionamento one to on
+            $table->string('patient')->nullable();// Configurar relacionamento one to many
             $table->string('observation')->nullable();
 
             $table->dateTime('start');
