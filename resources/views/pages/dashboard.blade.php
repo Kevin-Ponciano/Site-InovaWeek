@@ -30,93 +30,97 @@
         </button>
     </div>
 
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="row m-5">
+        <div class="card mr-5" style="width: 20rem;">
+            <img src="{{asset('assets/card1.jpg')}}" class="card-img-top mt-2 rounded-sm" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Horarios Livres</h5>
+                <p class="card-text">Confira no calendário os horários disponíveis para sua consulta.</p>
+                <a href="{{route('calendar')}}" class="btn btn-primary mt-2">Acessar</a>
+            </div>
+        </div>
+
+        <div class="card mr-5" style="width: 20rem;">
+            <img src="{{asset('assets/card2.jpg')}}" class="card-img-top mt-2 rounded-sm" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Seus Agendamentos</h5>
+                <p class="card-text">Visualize rapidamente na agenda seus exames anteriores e futuros.</p>
+                <a href="{{route('scheduling')}}" class="btn btn-primary mt-2">Acessar</a>
+            </div>
         </div>
     </div>
 
     <div class="py-2">
         @can('user')
         @else
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-3 position-absolute top-1 end-0">
-                            <div class="card collapsed-card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Pacientes</h3>
-                                    <div class="card-tools">
-                                        <span class="badge"
-                                              style="background-color: #00bed8">{{$patients->count()}}</span>
-                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                            <i class="fas fa-minus"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="card-body p-1">
-                                    <ul class="users-list clearfix">
-                                        @foreach($patients as $patient)
-                                            <li>
-                                                <img id='' src="{{$patient->getPhoto()}}" width="70" height="70"
-                                                     alt="User image">
-                                                <a class="users-list-name items-center" href="#">{{$patient->name}}</a>
-                                                {{--                                            <span class="users-list-date">Today</span>--}}
-                                            </li>
-                                        @endforeach
-
-                                    </ul>
-
-                                </div>
-
-                                <div class="card-footer text-center">
-                                    <a href="javascript:" class="btn btn-outline-primary">Visualizar Todos</a>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3 position-absolute top-1 end-0">
+                        <div class="card collapsed-card">
+                            <div class="card-header">
+                                <h3 class="card-title">Pacientes</h3>
+                                <div class="card-tools">
+                                    <span class="badge" style="background-color: #00bed8">{{$patients->count()}}</span>
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                        <i class="fas fa-times"></i>
+                                    </button>
                                 </div>
                             </div>
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Proximas Consultas</h3>
-                                    <div class="card-tools">
-                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                            <i class="fas fa-minus"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
+                            <div class="card-body p-1">
+                                <ul class="users-list clearfix">
+                                    @foreach($patients as $patient)
+                                    <li>
+                                        <img id='' src="{{$patient->getPhoto()}}" width="70" height="70" alt="User image">
+                                        <a class="users-list-name items-center" href="#">{{$patient->name}}</a>
+                                        {{-- <span class="users-list-date">Today</span>--}}
+                                    </li>
+                                    @endforeach
+
+                                </ul>
+
+                            </div>
+
+                            <div class="card-footer text-center">
+                                <a href="javascript:" class="btn btn-outline-primary">Visualizar Todos</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Proximas Consultas</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                        <i class="fas fa-times"></i>
+                                    </button>
                                 </div>
+                            </div>
 
-                                <div class="card-body p-0">
-                                    <ul class="products-list product-list-in-card pl-2 pr-2">
-                                        @foreach($consults as $consult)
-                                            @if($consult->patient!='')
-                                                <li class="item">
-                                                    <div>
-                                                        <a href="javascript:void(0)"
-                                                           class="product-title">{{$consult->title}}
-                                                            <span class="badge badge-primary float-right"
-                                                                  style="background-color: #00bed8">{{$consult->end}}</span></a>
-                                                        <span
-                                                            class="product-description">{{$consult->start}}</span>
-                                                    </div>
-                                                </li>
-                                            @endif
-                                        @endforeach
+                            <div class="card-body p-0">
+                                <ul class="products-list product-list-in-card pl-2 pr-2">
+                                    @foreach($consults as $consult)
+                                    @if($consult->patient!='')
+                                    <li class="item">
+                                        <div>
+                                            <a href="javascript:void(0)" class="product-title">{{$consult->title}}
+                                                <span class="badge badge-primary float-right" style="background-color: #00bed8">{{$consult->end}}</span></a>
+                                            <span class="product-description">{{$consult->start}}</span>
+                                        </div>
+                                    </li>
+                                    @endif
+                                    @endforeach
 
-                                    </ul>
-                                </div>
+                                </ul>
+                            </div>
 
-                                <div class="card-footer text-center">
-                                    <a href="{{route('scheduling')}}" class="uppercase btn btn-outline-primary">Todas as
-                                        Consultas</a>
-                                </div>
-
+                            <div class="card-footer text-center">
+                                <a href="{{route('scheduling')}}" class="uppercase btn btn-outline-primary">Todas as
+                                    Consultas</a>
                             </div>
 
                         </div>
@@ -124,7 +128,9 @@
                     </div>
 
                 </div>
-            </section>
+
+            </div>
+        </section>
         @endcan
     </div>
     </div>
