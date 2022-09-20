@@ -39,10 +39,10 @@ Route::middleware([
 
     Route::post('/calendario/destroy/{id}', [ConsultationController::class, 'destroy']);
 });
+Route::get('/termos', fn() => view('privacy.terms'))->name('terms');
+Route::get('/politica', fn() => view('privacy.policy'))->name('policy');
 
-//Route::post('/views',[CadastroController::class, 'store']);
 
-//Route::get('/cadastro', [CadastroController::class, 'index']);
 
 
 

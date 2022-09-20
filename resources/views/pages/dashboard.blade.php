@@ -67,26 +67,26 @@
                                     </li>
                                     @endforeach
 
-                                </ul>
+                                    </ul>
 
-                            </div>
+                                </div>
 
-                            <div class="card-footer text-center">
-                                <a href="javascript:">View All Users</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Recently Added Products</h3>
-                                <div class="card-tools">
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                        <i class="fas fa-times"></i>
-                                    </button>
+                                <div class="card-footer text-center">
+                                    <a href="javascript:" class="btn btn-outline-primary">Visualizar Todos</a>
                                 </div>
                             </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Proximas Consultas</h3>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
 
                             <div class="card-body p-0">
                                 <ul class="products-list product-list-in-card pl-2 pr-2">
@@ -135,11 +135,14 @@
                                         </div>
                                     </li>
 
-                                </ul>
-                            </div>
+                                    </ul>
+                                </div>
 
-                            <div class="card-footer text-center">
-                                <a href="javascript:void(0)" class="uppercase">View All Products</a>
+                                <div class="card-footer text-center">
+                                    <a href="{{route('scheduling')}}" class="uppercase btn btn-outline-primary">Todas as
+                                        Consultas</a>
+                                </div>
+
                             </div>
 
                         </div>
@@ -147,9 +150,8 @@
                     </div>
 
                 </div>
-
-            </div>
-        </section>
+            </section>
+        @endcan
     </div>
     </div>
 </x-app-layout>

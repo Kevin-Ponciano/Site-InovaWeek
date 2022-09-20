@@ -98,6 +98,7 @@ class ConsultationController extends Controller
             $consult->start = Carbon::createFromFormat("Y-m-d H:i:s", $consult->start)->format("d/m/Y");
             $consult->end = Carbon::createFromFormat("Y-m-d H:i:s", $consult->end)->format("H:i");
         }
+
         return view('pages.scheduling', ['consults' => $consults]);
     }
 }

@@ -1,0 +1,10 @@
+INSERT INTO odontoon.model_has_permissions (permission_id, model_type, model_id) VALUES (1, 'App\\Models\\User', 1);
+INSERT INTO odontoon.model_has_permissions (permission_id, model_type, model_id) VALUES (3, 'App\\Models\\User', 2);
+INSERT INTO odontoon.model_has_permissions (permission_id, model_type, model_id) VALUES (3, 'App\\Models\\User', 5);
+INSERT INTO odontoon.model_has_permissions (permission_id, model_type, model_id) VALUES (3, 'App\\Models\\User', 6);
+INSERT INTO odontoon.model_has_permissions (permission_id, model_type, model_id) VALUES (3, 'App\\Models\\User', 7);
+INSERT INTO odontoon.model_has_permissions (permission_id, model_type, model_id) VALUES (3, 'App\\Models\\User', 8);
+INSERT INTO odontoon.model_has_permissions (permission_id, model_type, model_id) VALUES (3, 'App\\Models\\User', 9);
+INSERT INTO odontoon.model_has_permissions (permission_id, model_type, model_id) VALUES (3, 'App\\Models\\User', 10);
+INSERT INTO odontoon.model_has_permissions (permission_id, model_type, model_id) VALUES (3, 'App\\Models\\User', 11);
+INSERT INTO odontoon.model_has_permissions (permission_id, model_type, model_id) VALUES (3, 'App\\Models\\User', 12);
