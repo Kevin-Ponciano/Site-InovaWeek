@@ -181,9 +181,28 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                {{ ('Dashboard') }}
             </x-jet-responsive-nav-link>
         </div>
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-jet-nav-link href="{{route('calendar')}}" :active="request()->routeIs('calendar')">
+                {{'Calendário'}}&nbsp;<i class='bi bi-calendar-date'></i>
+            </x-jet-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-jet-nav-link href="{{route('scheduling')}}" :active="request()->routeIs('scheduling')">
+                {{'Agenda'}}&nbsp;<i class="bi bi-journal-text"></i>
+            </x-jet-nav-link>
+        </div>
+        @can('user')
+        @else
+            <div class="pt-2 pb-3 space-y-1">
+                <x-jet-nav-link href="{{ route('buscar') }}" :active="request()->routeIs('buscar')">
+                    {{('Diagnóstico Diferencial')}}&nbsp;<i class="bi bi-search"></i>
+                </x-jet-nav-link>
+            </div>
+        @endcan
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
