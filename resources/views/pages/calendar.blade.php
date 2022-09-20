@@ -163,7 +163,7 @@
             },
             nowIndicator: true,
             now: d,
-            slotMinTime: '09:00:00',
+            slotMinTime: '07:00:00',
             slotMaxTime: '17:00:00',
             slotDuration: '01:00:00',
             slotLabelFormat: {
@@ -207,6 +207,7 @@
                     // Reseta as informações do Modal
                     form.reset();
                     document.getElementById('divPatient').classList.remove('d-none')
+                    document.getElementById('br1').classList.remove('d-none')
 
                     let time = new Date(info.dateStr.replace(/[^0-9,:-]/gi, ' '))
                     form.time.value = time.toLocaleString()
@@ -232,6 +233,7 @@
                         (res) => {
                             // Recupero as informações do Controller e as insiro no form
                             form.id.value = res.data.id
+                            document.getElementById('br1').classList.remove('d-none')
 
                             form.patient.value = '{{Auth::user()->name}}'
 
@@ -260,7 +262,7 @@
                     // Se der certo, o modal será aberto com as informações do banco
                     (res) => {
                         // Recupero as informações do Controller e as insiro no form
-
+                        document.getElementById('br1').classList.remove('d-none')
 
                         form.id.value = res.data.id
 
@@ -319,11 +321,10 @@
 
         calendar.render()
 
-        // calenUpdate =()=>{
-        //     calendar.refetchEvents()
-        //     console.log('refresh')
-        // }
-        // setInterval(calenUpdate,1000)
+        calenUpdate =()=>{
+            calendar.refetchEvents()
+        }
+        setInterval(calenUpdate,1000)
 
         document.getElementById('btnChange').addEventListener('click', () => {
             sendData('/calendario/update/' + form.id.value)
