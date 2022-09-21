@@ -37,7 +37,6 @@ class UserController extends Controller
                 $consults = $consults->concat($a);
             }
         }
-       debug($consults[0]);
 
         return view('pages.dashboard',['patients' => $patients, 'consults' => $consults]);
     }

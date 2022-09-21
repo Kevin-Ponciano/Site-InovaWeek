@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
 
             $table->string('name_suspect',64);
-            $table->string('symptoms',256);
-            $table->string('treatment',256);
-            $table->string('differential_diagnosis',256);
-            $table->string('exams',256);
-            $table->string('provoked',256);
-            $table->string('signals',256);
+            $table->string('symptoms',500);
+            $table->string('treatment',500);
+            $table->string('differential_diagnosis',500);
+            $table->string('exams',500);
+            $table->string('provoked',500);
+            $table->string('signals',500);
 
             $table->timestamps();
         });

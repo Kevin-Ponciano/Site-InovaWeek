@@ -887,7 +887,7 @@
                             Hospedagem grátis
                         </li>
                     </ul>
-                    <form id="signup-cta" action="https://github.com/odontome/app">
+                    <form id="signup-cta" action="https://github.com/Garchy/Site-InovaWeek">
                         <button
                             class="
 							inline-flex
@@ -1116,7 +1116,7 @@
                             Hospedagem grátis
                         </li>
                     </ul>
-                    <form action="https://my.odonto.me/signup">
+                    <form action="{{route('register')}}">
                         <button
                             class="
 							inline-flex
