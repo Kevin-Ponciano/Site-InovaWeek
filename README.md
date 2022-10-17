@@ -19,8 +19,6 @@ A proposta inicial será que dentro desta plataforma o paciente ao se cadastrar,
   </tr>
 </table>
 
-- **[Lucca Quintas - Frontend]()**
-- **[Gabriel Gonçalves - IA]()**
 
 ## 🛠 Tecnologias
 
