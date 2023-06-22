@@ -12,7 +12,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(callback: function () {
-    // Route::get('/', fn() => view('pages.dashboard'))->name('dashboard');
+    Route::get('/', fn() => view('pages.home'));
     // Route::get('/dashboard', fn() => view('pages.dashboard'))->name('dashboard');
 
     Route::get('/dashboard',[UserController::class,'index'])->name('dashboard');

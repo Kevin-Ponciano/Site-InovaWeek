@@ -105,8 +105,4 @@ class AuthenticatedSessionController extends Controller
 
         return app(LogoutResponse::class);
     }
-
-    public function index(){
-        return view('pages.home');
-    }
 }
